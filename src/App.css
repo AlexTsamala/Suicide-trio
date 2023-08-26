@@ -1,3 +1,7 @@
+body {
+  background-color: #fafafa;
+}
+
 a {
   text-decoration: none;
   color: var(--clr-purple-pri);
@@ -55,7 +59,6 @@ input {
   border-radius: var(--border-radius);
   transition: 0.3s ease;
   caret-color: var(--clr-purple-pri);
-}
 
 label:has(input.invalid, input[data-valid-url='false']) span {
   color: var(--clr-red);
@@ -64,6 +67,7 @@ label:has(input.invalid, input[data-valid-url='false']) span {
 input::placeholder {
   color: var(--clr-dark-grey);
   opacity: 0.5;
+
 }
 
 input:is(:focus, :hover) {
@@ -72,7 +76,9 @@ input:is(:focus, :hover) {
   box-shadow: 0 0 32px var(--clr-purple-shadow);
 }
 
+
 input.invalid,
 input[data-valid-url='false'] {
   border-color: var(--clr-red);
 }
+
