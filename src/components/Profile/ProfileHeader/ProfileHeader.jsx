@@ -1,9 +1,9 @@
 import React from "react";
-import SmallLogoIcon from "/Users/chxar/OneDrive/Desktop/Suicide-trio/src/assets/images/logo-devlinks-small.svg";
-import LargeLogoIcon from "/Users/chxar/OneDrive/Desktop/Suicide-trio/src/assets/images/logo-devlinks-large.svg";
-import LinkIcon from "/Users/chxar/OneDrive/Desktop/Suicide-trio/src/assets/images/icon-link.svg";
-import ProfileIcon from "/Users/chxar/OneDrive/Desktop/Suicide-trio/src/assets/images/icon-profile-details-header.svg";
-import Preview from "/Users/chxar/OneDrive/Desktop/Suicide-trio/src/assets/images/icon-preview-header.svg";
+import SmallLogoIcon from "./logo-devlinks-small.svg";
+import LargeLogoIcon from "./logo-devlinks-large.svg";
+import LinkIcon from "./icon-link.svg";
+import ProfileIcon from "./icon-profile-details-header.svg";
+import Preview from "./icon-preview-header.svg";
 import Styles from "./ProfileHeader.module.css";
 
 const ProfileHeader = () => {
