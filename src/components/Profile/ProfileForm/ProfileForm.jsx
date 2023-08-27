@@ -1,7 +1,14 @@
 import Styles from "./ProfileForm.module.css";
 import { useForm } from "react-hook-form";
 
-const ProfileForm = ({ firstName, setFirstName }) => {
+const ProfileForm = ({
+  firstName,
+  setFirstName,
+  lastName,
+  setLastName,
+  email,
+  setEmail,
+}) => {
   const {
     register,
     handleSubmit,
@@ -15,8 +22,8 @@ const ProfileForm = ({ firstName, setFirstName }) => {
       <div className={Styles.container}>
         <div className={Styles.main}>
           <form onSubmit={handleSubmit(onSubmit)} className={Styles.form}>
+            {/* FirstName */}
             <div className={Styles.firstName_input_box}>
-              {/* FirstName */}
               <label htmlFor="firstName" className={Styles.label}>
                 First Name*
               </label>
@@ -28,7 +35,7 @@ const ProfileForm = ({ firstName, setFirstName }) => {
                   {...register("firstName", {
                     required: {
                       value: true,
-                      message: "Username is required",
+                      message: "Can’t be empty",
                     },
                   })}
                   onChange={(e) => setFirstName(e.target.value)}
@@ -39,33 +46,61 @@ const ProfileForm = ({ firstName, setFirstName }) => {
                 </p>
               </div>
             </div>
-            <div className={Styles.firstName_input_box}>
-              {/* LastName */}
+            {/* LastName */}
+            <div className={Styles.lastName_input_box}>
               <label htmlFor="lastName" className={Styles.label}>
                 Last name*
               </label>
-              <input
-                type="text"
-                placeholder="e.g. Appleseed"
-                className={Styles.input}
-                {...register("lastName")}
-              />
+              <div className={Styles.lastName_input_content}>
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="e.g. Appleseed"
+                  className={Styles.input}
+                  value={lastName}
+                  {...register("lastName", {
+                    required: {
+                      value: true,
+                      message: "Can’t be empty",
+                    },
+                  })}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+                <p className={Styles.error_message}>
+                  {errors.lastName?.message}
+                </p>
+              </div>
             </div>
-            <div className={Styles.firstName_input_box}>
-              {/* Email */}
+            {/* Email */}
+            <div className={Styles.email_input_box}>
               <label htmlFor="email" className={Styles.label}>
                 Email
               </label>
-              <input
-                type="text"
-                placeholder="e.g. email@example.com"
-                className={Styles.input}
-                {...register("email")}
-              />
+              <div className={Styles.email_input_content}>
+                <input
+                  type="text"
+                  name="email"
+                  value={email}
+                  placeholder="e.g. email@example.com"
+                  className={Styles.input}
+                  {...register("email", {
+                    required: {
+                      value: true,
+                      message: "Can’t be empty",
+                    },
+                  })}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <p className={Styles.error_message}>{errors.email?.message}</p>
+              </div>
             </div>
-            <button type="submit">Submit</button>
           </form>
         </div>
+      </div>
+      <div className={Styles.btn}>
+        <button className={Styles.save_button} type="submit">
+          Submit
+        </button>
       </div>
     </>
   );
