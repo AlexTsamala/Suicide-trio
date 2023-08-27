@@ -8,6 +8,7 @@ const ProfileForm = ({ firstName, setFirstName }) => {
         <div className={Styles.main}>
           <form className={Styles.form}>
             <div className={Styles.firstName_input_box}>
+              {/* FirstName */}
               <label htmlFor="firstName" className={Styles.label}>
                 First Name*
               </label>
@@ -20,6 +21,7 @@ const ProfileForm = ({ firstName, setFirstName }) => {
               />
             </div>
             <div className={Styles.firstName_input_box}>
+              {/* LastName */}
               <label htmlFor="lastName" className={Styles.label}>
                 Last name*
               </label>
@@ -30,6 +32,7 @@ const ProfileForm = ({ firstName, setFirstName }) => {
               />
             </div>
             <div className={Styles.firstName_input_box}>
+              {/* Email */}
               <label htmlFor="email" className={Styles.label}>
                 Email
               </label>

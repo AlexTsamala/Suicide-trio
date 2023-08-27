@@ -57,11 +57,9 @@
 }
 
 @media screen and (min-width: 768px) {
-  .rame {
-    padding: 24px;
-  }
   .main {
     padding: 40px;
+    width: 720px;
   }
   .body {
     font-size: 32px;
