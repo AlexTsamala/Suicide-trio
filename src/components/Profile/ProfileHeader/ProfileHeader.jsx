@@ -24,7 +24,7 @@ const ProfileHeader = () => {
               className={Styles.large_logo_icon}
             />
           </li>
-          <div style={{ display: "flex" }}>
+          <div className={Styles.link_profile_both}>
             {/* Link / Profile Icon */}
             <li className={Styles.link_box}>
               <img src={LinkIcon} alt="" />

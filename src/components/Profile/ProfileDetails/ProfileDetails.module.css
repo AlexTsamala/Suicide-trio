@@ -8,6 +8,24 @@
 
 .desktop {
   display: none;
+  position: relative;
+  text-align: left;
+}
+
+.mobile_content h1 {
+  position: absolute;
+  top: 201px;
+  right: 78px;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 150%;
+  text-align: center;
+  display: flex;
+  align-content: center;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
 }
 
 .main {
@@ -56,6 +74,9 @@
     /* width: 50%; */
   }
   .main {
-    width: 728px;
+    width: 808px;
+  }
+  .title {
+    font-size: 32px;
   }
 }
