@@ -7,6 +7,8 @@ import ProfileForm from "../ProfileForm/ProfileForm";
 const ProfileDetails = ({ title, content }) => {
   // firstName pass with props to ProfileForm
   const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   return (
     <div className={Styles.body}>
       {/* Large Screen Styles (desktop) */}
@@ -23,7 +25,14 @@ const ProfileDetails = ({ title, content }) => {
           <p className={Styles.content}>{content}</p>
         </div>
         <ProfileImage />
-        <ProfileForm firstName={firstName} setFirstName={setFirstName} />
+        <ProfileForm
+          firstName={firstName}
+          setFirstName={setFirstName}
+          lastName={lastName}
+          setLastName={setLastName}
+          email={email}
+          setEmail={setEmail}
+        />
       </div>
     </div>
   );
