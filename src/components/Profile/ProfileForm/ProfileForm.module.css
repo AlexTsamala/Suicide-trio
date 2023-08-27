@@ -29,7 +29,7 @@
   line-height: 150%;
 }
 
-input {
+.input {
   padding-left: 16px;
 }
 
@@ -57,10 +57,16 @@ input {
     justify-content: space-between;
     align-items: center;
   }
-  input {
+  .input {
     width: 344px;
   }
   .label {
     font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .input {
+    width: 432px;
   }
 }

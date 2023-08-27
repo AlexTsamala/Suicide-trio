@@ -25,8 +25,16 @@ ul {
   gap: 8px;
 }
 
+.link_profile_both {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+}
+
 .large_logo_icon {
   display: none;
+  width: 146px;
 }
 
 .small_logo_icon {
@@ -105,5 +113,8 @@ ul {
 @media screen and (min-width: 1440px) {
   .preview_box {
     padding: 11px 27px;
+  }
+  .link_profile_both {
+    gap: 16px;
   }
 }

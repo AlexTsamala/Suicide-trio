@@ -1,6 +1,6 @@
 import React from "react";
 import Styles from "./ProfileImage.module.css";
-import UploadImage from "/Users/chxar/OneDrive/Desktop/Suicide-trio/src/assets/images/icon-upload-image.svg";
+import UploadImage from "./icon-upload-image.svg";
 
 const ProfileImage = () => {
   return (
