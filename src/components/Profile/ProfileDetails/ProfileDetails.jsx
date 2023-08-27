@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "./illustration-phone-mockup.svg";
 import Styles from "./ProfileDetails.module.css";
 import ProfileImage from "../ProfileImage/ProfileImage";
