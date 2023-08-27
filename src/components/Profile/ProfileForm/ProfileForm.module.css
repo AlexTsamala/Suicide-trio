@@ -16,7 +16,9 @@
   gap: 12px;
 }
 
-.firstName_input_box {
+.firstName_input_box,
+.lastName_input_box,
+.email_input_box {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -29,7 +31,9 @@
   line-height: 150%;
 }
 
-.firstName_input_content {
+.firstName_input_content,
+.lastName_input_content,
+.email_input_content {
   position: relative;
 }
 
@@ -51,24 +55,26 @@
 }
 
 .save_button {
-  width: 257px;
-  padding: 11px 137px 11px 137px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 17px;
-  background-color: #633cff;
-  outline: none;
   border-radius: 8px;
-  border: none;
-  color: white;
+  background: #633cff;
+  padding: 11px 137px;
+  color: #fff;
+  font-size: 16px;
   font-weight: 600;
   line-height: 150%;
+  border: 0;
+}
+
+.btn {
+  margin-top: 17px;
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
-  .firstName_input_box {
+  .firstName_input_box,
+  .lastName_input_box,
+  .email_input_box {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -79,6 +85,14 @@
   }
   .label {
     font-size: 16px;
+  }
+  .save_button {
+    padding: 11px 27px;
+  }
+  .btn {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
