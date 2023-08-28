@@ -2,8 +2,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/authentication/Login";
 import Signup from "./components/authentication/Signup";
 import "./App.css";
-import { AddLinks } from "./components/links/addLinks";
-import Profile from "./components/Profile/Profile";
+import { AddLinks } from "./components/links/addLinks/AddLinks";
+// import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
@@ -12,8 +12,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/addLinks" element={<AddLinks />} />
-      <Route path="/profile" element={<Profile />} />
-
+      {/* <Route path="/profile" element={<Profile />} /> */}
     </Routes>
   );
 }
