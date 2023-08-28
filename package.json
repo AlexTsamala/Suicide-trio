@@ -13,7 +13,7 @@
     "@finapi/web-form": "^2.26.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-select": "^5.7.4"
+    "react-select": "^5.7.4",
     "react-hook-form": "^7.45.4",
     "react-router-dom": "^6.15.0"
   },
