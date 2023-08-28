@@ -1,9 +1,9 @@
-import React from "react";
+import Styles from "./Preview.module.css";
 import Header from "./Header";
 
 const Preview = () => {
   return (
-    <div>
+    <div className={Styles.preview_container}>
       <Header />
     </div>
   );
