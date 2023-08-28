@@ -9,6 +9,7 @@ const ProfileDetails = ({ title, content }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [userImageForMobile, setUserImageForMobile] = useState(null);
   return (
     <div className={Styles.body}>
       {/* Large Screen Styles (desktop) */}
@@ -24,7 +25,10 @@ const ProfileDetails = ({ title, content }) => {
           <h1 className={Styles.title}>{title}</h1>
           <p className={Styles.content}>{content}</p>
         </div>
-        <ProfileImage />
+        <ProfileImage
+          userImageForMobile={userImageForMobile}
+          setUserImageForMobile={setUserImageForMobile}
+        />
         <ProfileForm
           firstName={firstName}
           setFirstName={setFirstName}

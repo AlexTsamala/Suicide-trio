@@ -22,6 +22,7 @@ const ProfileImage = ({ userImageForMobile, setUserImageForMobile }) => {
       console.log("Uploading image:", userImageForMobile);
     }
   };
+  console.log(userImageForMobile);
 
   return (
     <>
