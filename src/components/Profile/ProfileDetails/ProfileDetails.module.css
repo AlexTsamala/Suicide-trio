@@ -1,10 +1,38 @@
 .body {
   padding: 16px;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
+
+.desktop {
+  display: none;
+  position: relative;
+  text-align: left;
+}
+
+.mobile_content h1 {
+  position: absolute;
+  top: 201px;
+  right: 78px;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 150%;
+  text-align: center;
+  display: flex;
+  align-content: center;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+}
+
 .main {
   padding: 24px;
   background-color: white;
   border-radius: 12px;
+  /* width: 50%; */
   /* margin-top: 16px; */
 }
 
@@ -29,13 +57,24 @@
 }
 
 @media screen and (min-width: 768px) {
-  .rame {
-    padding: 24px;
-  }
   .main {
     padding: 40px;
+    width: 720px;
   }
   .body {
+    font-size: 32px;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .desktop {
+    display: flex;
+    /* width: 50%; */
+  }
+  .main {
+    width: 808px;
+  }
+  .title {
     font-size: 32px;
   }
 }

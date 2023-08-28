@@ -67,3 +67,8 @@
     max-width: 127px;
   }
 }
+@media screen and (min-width: 1440px) {
+  .upload_rules {
+    max-width: 215px;
+  }
+}
