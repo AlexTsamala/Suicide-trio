@@ -12,20 +12,25 @@
   text-align: left;
 }
 
-.mobile_content h1 {
-  position: absolute;
-  top: 201px;
-  right: 78px;
+.mobile_content {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+
+.mobile_content .mobile_content_firstName {
   color: #333;
   font-size: 18px;
   font-weight: 600;
   line-height: 150%;
+
+  width: 80%;
   text-align: center;
-  display: flex;
-  align-content: center;
+  top: 243px;
+  position: absolute;
+  left: 0;
+  right: 0;
   margin: auto;
-  justify-content: center;
-  width: 100%;
 }
 
 .main {

@@ -51,6 +51,48 @@
   gap: 24px;
 }
 
+.image_input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 193px;
+  height: 193px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.rame {
+  width: 195px;
+  height: 195px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  cursor: pointer;
+  width: 193px;
+  height: 193px;
+  border-radius: 12px;
+}
+
+.user_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  cursor: pointer;
+  width: 193px;
+  height: 193px;
+  border-radius: 12px;
+}
+
+.custom_file_input input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  /* pointer-events: none; */
+}
+
 @media screen and (min-width: 768px) {
   .container {
     flex-direction: row;

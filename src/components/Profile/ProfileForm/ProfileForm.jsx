@@ -84,17 +84,8 @@ const ProfileForm = ({
                     value={email}
                     placeholder="e.g. email@example.com"
                     className={Styles.input}
-                    // {...register("email", {
-                    //   required: {
-                    //     value: true,
-                    //     message: "Can’t be empty",
-                    //   },
-                    // })}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  {/* <p className={Styles.error_message}>
-                    {errors.email?.message}
-                  </p> */}
                 </div>
               </div>
             </div>
