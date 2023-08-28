@@ -1,4 +1,3 @@
-import React from "react";
 import SmallLogoIcon from "./logo-devlinks-small.svg";
 import LargeLogoIcon from "./logo-devlinks-large.svg";
 import LinkIcon from "./icon-link.svg";

@@ -1,4 +1,3 @@
-import React from "react";
 import Styles from "./ProfileImage.module.css";
 import UploadImage from "./icon-upload-image.svg";
 
