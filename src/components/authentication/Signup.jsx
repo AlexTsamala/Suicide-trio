@@ -1,40 +1,25 @@
-import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DevlinksLogoLg from "../../assets/images/logo-devlinks-large.svg";
 import styles from './authentication.module.css';
 import EmailIcon from "../authentication/icons/EmailIcon";
 import LockIcon from "../authentication/icons/LockIcon";
 import Button from "../button/Button";
+import { useState } from "react";
 
 export default function Signup() {
     const navigate = useNavigate();
 
-    const emailRef = useRef(null);
-    const passwordRef = useRef(null);
-    const passwordConfirmRef = useRef(null);
-
-    const handleSubmit = async (e) => {
+    const [input, setInput] = useState({
+        email: "",
+        password: "",
+        confirmPassword: "",
+    });
+  
+    //
+    const handleSubmit =(e) => {
         e.preventDefault();
-
-        if (
-            !emailRef.current ||
-            !passwordRef.current ||
-            !passwordConfirmRef.current
-        ) return;
-
-        const data = {
-            email: emailRef.current.value,
-            password: passwordRef.current.value,
-        };
-
-        localStorage.setItem("userData", JSON.stringify(data));
-
-        const success = true;
-
-        if (success) {
-            navigate('/');
-            console.log(data);
-        }
+        localStorage.setItem("user", JSON.stringify(input));
+        navigate("/login");
     };
 
     return (
@@ -44,15 +29,20 @@ export default function Signup() {
                 <h2>Create Account</h2>
                 <p>Let`s get you started sharing your links!</p>
             </div>
-            <form action="" onSubmit={handleSubmit} className={styles.form}>
+            <form
+                action=""
+                onSubmit={handleSubmit}
+                className={styles.form}
+            >
                 <label htmlFor="email">
                     <EmailIcon />
                     <span>Email address</span>
                     <input
                         type="email"
                         name="email"
+                        value={input.email}
+                        onChange={(e) => setInput({... input, [e.target.name]: e.target.value})}
                         id="email"
-                        ref={emailRef}
                         placeholder="e.g. alex@email.com"
                         required
                     />
@@ -62,9 +52,10 @@ export default function Signup() {
                     <span>Create password</span>
                     <input
                         type="password"
-                        name="create-password"
                         id="create-password"
-                        ref={passwordRef}
+                        name="password"
+                        value={input.password}
+                        onChange={(e) => setInput({ ...input, password: e.target.value })}
                         placeholder="At least 8 characters"
                         required
                     />
@@ -76,7 +67,8 @@ export default function Signup() {
                         type="password"
                         name="confirm-password"
                         id="confirm-password"
-                        ref={passwordConfirmRef}
+                        value={input.confirmPassword}
+                        onChange={(e) => setInput({ ...input, confirmPassword: e.target.value })}
                         placeholder="At least 8 characters"
                         required
                     />
@@ -85,7 +77,7 @@ export default function Signup() {
                     Password must contain at least 8 characters
                 </p>
 
-                <Button>
+                <Button type="submit">
                     Create new account
                 </Button>
             </form>
@@ -95,4 +87,3 @@ export default function Signup() {
         </main>
     );
 }
-

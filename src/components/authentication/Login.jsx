@@ -1,29 +1,32 @@
-import { useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom'
 import DevlinksLogoLg from "../../assets/images/logo-devlinks-large.svg";
 import styles from './authentication.module.css';
 import EmailIcon from "../authentication/icons/EmailIcon";
 import LockIcon from "../authentication/icons/LockIcon";
 import Button from "../button/Button";
+import { useState } from "react";
 
 export default function Login() {
-    const emailRef = useRef(null);
-    const passwordRef = useRef(null);
-
     const navigate = useNavigate();
+    const [input, setInput] = useState({
+        email: "",
+        password: "",
+    });
 
-    const handleSubmit = async (e) => {
+    const handleLogin =(e) => {
         e.preventDefault();
-
-        if (!emailRef.current || !passwordRef.current) return;
-
-        const success = true; // Simulate success
-
-        if (success) {
-            navigate('/');
+        const loggeduser = JSON.parse(localStorage.getItem("user"));
+        if(
+            input.email === loggeduser.email 
+            && input.password === loggeduser.password) 
+        {
+            navigate("/profile");
+        } else {
+            alert("Wrong Email Or Password");
         }
     };
 
+    
     return (
         <main className={styles.main}>
             <img src={DevlinksLogoLg} alt="DevlinksLogoLg"/>
@@ -33,8 +36,8 @@ export default function Login() {
             </div>
             <form
                 action=""
+                onSubmit={handleLogin}
                 className={styles.form}
-                onSubmit={handleSubmit}
             >
                 <label htmlFor="email">
                     <EmailIcon />
@@ -43,9 +46,11 @@ export default function Login() {
                         type="email"
                         name="email"
                         id="email"
-                        ref={emailRef}
+                        value={input.email}
+                        onChange={(e) => setInput({... input, [e.target.name]: e.target.value})}
                         placeholder="e.g. alex@email.com"
                         required
+                        className={input.email === '' ? 'invalid' : ''}
                     />
                 </label>
                 <label htmlFor="password">
@@ -55,12 +60,14 @@ export default function Login() {
                         type="password"
                         name="password"
                         id="password"
-                        ref={passwordRef}
+                        value={input.password}
+                        onChange={(e) => setInput({... input, [e.target.name]: e.target.value})}
                         placeholder="Enter your password"
                         required
+                        className={input.email === '' ? 'invalid' : ''}
                     />
                 </label>
-                <Button>Login</Button>
+                <Button type="submit">Login</Button>
             </form>
             <p style={{ textAlign: 'center' }}>
                 Don`t have an account? <Link to='/signup'>Create account</Link>

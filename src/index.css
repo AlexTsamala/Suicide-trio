@@ -29,8 +29,13 @@
 }
 
 body {
+  position: relative;
   font: var(--font-body-md);
   color: var(--clr-light-grey);
+}
+
+body:has(div[data-copy='true']) {
+  cursor: grabbing;
 }
 
 h1,
@@ -39,9 +44,12 @@ h3 {
   color: var(--clr-dark-grey);
 }
 
+h1 {
+  font: var(--font-head-lg);
+}
+
 h2 {
   font: var(--font-head-md);
-  color: var(--clr-dark-grey);
 }
 
 h3 {

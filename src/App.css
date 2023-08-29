@@ -59,6 +59,7 @@ input {
   border-radius: var(--border-radius);
   transition: 0.3s ease;
   caret-color: var(--clr-purple-pri);
+}
 
   label:has(input.invalid, input[data-valid-url="false"]) span {
     color: var(--clr-red);
@@ -80,3 +81,4 @@ input {
     border-color: var(--clr-red);
   }
 }
+
