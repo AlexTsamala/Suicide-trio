@@ -1,26 +1,15 @@
-import { useState } from "react";
-import Styles from "./ProfileImage.module.css";
-import UploadImage from "./icon-upload-image.svg";
 import { useForm } from "react-hook-form";
+import Styles from "./ProfileImage.module.css";
+import UploadImage from "../../../assets/images/icon-upload-image.svg";
 
 const ProfileImage = ({ userImageForMobile, setUserImageForMobile }) => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const { register, handleSubmit } = useForm();
+  const { handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
-    // console.log(data);
-  };
+  const onSubmit = (data) => {};
 
   const handleImageChange = (event) => {
     setUserImageForMobile(URL.createObjectURL(event.target.files[0]));
   };
-
-  const handleUpload = () => {
-    if (userImageForMobile) {
-      // console.log("Uploading image:", userImageForMobile);
-    }
-  };
-  // console.log(userImageForMobile);
 
   return (
     <>
