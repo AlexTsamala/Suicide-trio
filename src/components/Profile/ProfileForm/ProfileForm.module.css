@@ -42,6 +42,14 @@
   width: 100%;
 }
 
+/* .error_input {
+  border: 1px solid red;
+} */
+
+.error_input:focus {
+  outline: none;
+}
+
 .error_message {
   position: absolute;
   top: 14px;
