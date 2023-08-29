@@ -27,7 +27,7 @@
   width: 100%;
   overflow: hidden;
   top: 258px;
-  right: 11px;
+  right: 13px;
   margin: auto;
   display: flex;
   flex-direction: row;
@@ -42,7 +42,7 @@
   max-width: 100%;
   position: absolute;
   top: 274px;
-  right: 7px;
+  right: 11px;
   text-align: center;
 }
 
