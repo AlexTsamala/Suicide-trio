@@ -37,8 +37,42 @@ const platformOptions = [
   { value: "Stack Overflow", label: "Stack Overflow" },
 ];
 
-export const Platform = () => {
+export const Platform = ({
+  count,
+  currentPlatform,
+  platforms,
+  setPlatforms,
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const inputHandler = (event) => {
+    const platformData = [...platforms];
+    const indexOfData = platformData.findIndex(
+      (platform) => platform.id === currentPlatform.id
+    );
+    platformData[indexOfData].input = event.target.value;
+    setPlatforms(platformData);
+  };
+
+  const deletePlatform = () => {
+    const platformData = [...platforms];
+    const indexOfData = platformData.findIndex(
+      (platform) => platform.id === currentPlatform.id
+    );
+
+    platformData.splice(indexOfData, 1);
+    setPlatforms(platformData);
+  };
+
+  const selectHandler = (event) => {
+    const platformData = [...platforms];
+    const indexOfData = platformData.findIndex(
+      (platform) => platform.id === currentPlatform.id
+    );
+    platformData[indexOfData].value = event.value;
+    platformData[indexOfData].label = event.label;
+    setPlatforms(platformData);
+  };
 
   const DropdownIndicator = (props) => {
     return (
@@ -102,10 +136,6 @@ export const Platform = () => {
       case "Stack Overflow":
         iconSrc = stackoverflowIcon;
         break;
-      default:
-        // Use a default icon if no matching platform is found
-        iconSrc = defaultIcon;
-        break;
     }
 
     return (
@@ -165,19 +195,23 @@ export const Platform = () => {
             src={dragNDrop}
             alt="Drag and Drop Icon"
           />
-          <h6 className={Styles.linkNum}>Link #1</h6>
+          <h6 className={Styles.linkNum}>Link #{count}</h6>
         </div>
-        <h6 className={Styles.removeBtn}>Remove</h6>
+        <h6 className={Styles.removeBtn} onClick={deletePlatform}>
+          Remove
+        </h6>
       </div>
 
       <div className={Styles.platformCont}>
         <h6 className={Styles.platformH6}>Platform</h6>
         <Select
+          value={currentPlatform}
+          onChange={selectHandler}
           options={platformOptions}
           styles={customStyles}
           components={{ DropdownIndicator }}
           formatOptionLabel={formatOptionLabel}
-          defaultValue={platformOptions[0]}
+          defaultValue={currentPlatform}
           isSearchable={false}
           menuIsOpen={isMenuOpen}
           onMenuOpen={() => setIsMenuOpen(true)}
@@ -187,8 +221,10 @@ export const Platform = () => {
         <div className={Styles.linkCont}>
           <img className={Styles.linkIcon} src={linkIcon} alt="link icon" />
           <input
+            onChange={inputHandler}
             className={Styles.linkInput}
             placeholder="e.g. https://www.github.com/johnappleseed"
+            value={currentPlatform.input}
           ></input>
         </div>
       </div>

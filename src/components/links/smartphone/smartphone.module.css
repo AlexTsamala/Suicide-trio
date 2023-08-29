@@ -1,11 +1,17 @@
 .smartphoneCont {
-  display: inline-block;
-  width: 560px;
-  height: 834px;
-  border-radius: 12px;
-  background: #fff;
-  margin-right: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
+}
+
+@media (min-width: 1440px) {
+  .smartphoneCont {
+    display: block;
+    width: 560px;
+    height: 834px;
+    border-radius: 12px;
+    background: #fff;
+    margin-right: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
