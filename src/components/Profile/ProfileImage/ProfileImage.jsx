@@ -8,10 +8,8 @@ const ProfileImage = ({ userImageForMobile, setUserImageForMobile }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
   };
-
-  console.log(userImageForMobile);
 
   const handleImageChange = (event) => {
     setUserImageForMobile(URL.createObjectURL(event.target.files[0]));
@@ -19,10 +17,10 @@ const ProfileImage = ({ userImageForMobile, setUserImageForMobile }) => {
 
   const handleUpload = () => {
     if (userImageForMobile) {
-      console.log("Uploading image:", userImageForMobile);
+      // console.log("Uploading image:", userImageForMobile);
     }
   };
-  console.log(userImageForMobile);
+  // console.log(userImageForMobile);
 
   return (
     <>

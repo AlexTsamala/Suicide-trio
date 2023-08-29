@@ -1,4 +1,3 @@
-import React from "react";
 import ProfileHeader from "./ProfileHeader/ProfileHeader";
 import ProfileDetails from "./ProfileDetails/ProfileDetails";
 

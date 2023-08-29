@@ -8,6 +8,10 @@ const ProfileForm = ({
   setLastName,
   email,
   setEmail,
+  userImageForMobile,
+  setUserImageForMobile,
+  formValidate,
+  setFormValidate,
 }) => {
   const {
     register,
@@ -15,7 +19,9 @@ const ProfileForm = ({
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    setFormValidate(true);
+  };
 
   return (
     <>
@@ -31,7 +37,7 @@ const ProfileForm = ({
                 <div className={Styles.firstName_input_content}>
                   <input
                     type="text"
-                    placeholder="e.g. John"
+                    placeholder="John"
                     value={firstName}
                     {...register("firstName", {
                       required: {
@@ -56,7 +62,7 @@ const ProfileForm = ({
                   <input
                     type="text"
                     name="lastName"
-                    placeholder="e.g. Appleseed"
+                    placeholder="Appleseed"
                     className={Styles.input}
                     value={lastName}
                     {...register("lastName", {
@@ -82,7 +88,7 @@ const ProfileForm = ({
                     type="text"
                     name="email"
                     value={email}
-                    placeholder="e.g. email@example.com"
+                    placeholder="email@example.com"
                     className={Styles.input}
                     // {...register("email", {
                     //   required: {
@@ -92,9 +98,6 @@ const ProfileForm = ({
                     // })}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  {/* <p className={Styles.error_message}>
-                    {errors.email?.message}
-                  </p> */}
                 </div>
               </div>
             </div>

@@ -12,28 +12,66 @@
   text-align: left;
 }
 
-.mobile_content h1 {
+.user_img {
+  width: 98px;
+  height: 98px;
   position: absolute;
-  top: 201px;
-  right: 78px;
+  top: 59px;
+  left: 105px;
+  border-radius: 96px;
+  border: 2px solid var(--purple, #633cff);
+  background: lightgray 50% / cover no-repeat, #eee;
+}
+
+.user_names {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.user_text_info {
+  position: absolute;
+  top: 181px;
+  right: 58px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user_names {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  text-align: center;
+  align-items: center;
+}
+
+.mobile_content .user_firstname {
   color: #333;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 150%;
-  text-align: center;
-  display: flex;
-  align-content: center;
-  margin: auto;
-  justify-content: center;
-  width: 100%;
+}
+
+.mobile_content .user_lastname {
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+.mobile_content .user_email {
+  color: #737373;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
 }
 
 .main {
   padding: 24px;
   background-color: white;
   border-radius: 12px;
-  /* width: 50%; */
-  /* margin-top: 16px; */
 }
 
 .text_content {

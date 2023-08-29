@@ -10,13 +10,29 @@ const ProfileDetails = ({ title, content }) => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [userImageForMobile, setUserImageForMobile] = useState(null);
+  const [formValidate, setFormValidate] = useState(false);
   return (
     <div className={Styles.body}>
       {/* Large Screen Styles (desktop) */}
       <div className={Styles.desktop}>
-        <img src={Image} alt="Image" />
         <div className={Styles.mobile_content}>
-          <h1>{firstName}</h1>
+          <img src={Image} alt="Image" />
+          {formValidate ? (
+            <>
+              <img
+                src={userImageForMobile}
+                alt="user-profile-image"
+                className={Styles.user_img}
+              />
+              <div className={Styles.user_text_info}>
+                <div className={Styles.user_names}>
+                  <h1 className={Styles.user_firstname}>{firstName}</h1>
+                  <h2 className={Styles.user_lastname}>{lastName}</h2>
+                </div>
+                <span className={Styles.user_email}>{email}</span>
+              </div>
+            </>
+          ) : null}
         </div>
       </div>
       {/*  */}
@@ -36,6 +52,10 @@ const ProfileDetails = ({ title, content }) => {
           setLastName={setLastName}
           email={email}
           setEmail={setEmail}
+          userImageForMobile={userImageForMobile}
+          setUserImageForMobile={setUserImageForMobile}
+          formValidate={formValidate}
+          setFormValidate={setFormValidate}
         />
       </div>
     </div>
