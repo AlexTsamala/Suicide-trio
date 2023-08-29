@@ -4,7 +4,7 @@ import Signup from "./components/authentication/Signup";
 import "./App.css";
 import { AddLinks } from "./components/links/addLinks/AddLinks";
 import Profile from "./components/Profile/Profile";
-// import Preview from "./components/Preview/Preview";
+import Preview from "./components/Preview/Preview";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/addLinks" element={<AddLinks />} />
       <Route path="/profile" element={<Profile />} />
-      {/* <Route path="/preview" element={<Preview />} /> */}
+      <Route path="/preview" element={<Preview />} />
     </Routes>
   );
 }
