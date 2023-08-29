@@ -7,6 +7,7 @@ import profileLogo from "../linksAssets/icon-profile-details-header.svg";
 import previewLogo from "../linksAssets/icon-preview-header.svg";
 import { GetStarted } from "../getStarted/GetStarted";
 import { Platform } from "../platform/Platform";
+import { Smartphone } from "../smartphone/Smartphone";
 
 export const AddLinks = () => {
   const [platforms, setPlatforms] = useState([]);
@@ -50,30 +51,33 @@ export const AddLinks = () => {
             <p className={Styles.previewP}>Preview</p>
           </div>
         </div>
-
-        <div className={Styles.contentContainer}>
-          <h1 className={Styles.customizeH1}>Customize your links</h1>
-          <p className={Styles.customizeP}>
-            Add/edit/remove links below and then share all your profiles with
-            the world!
-          </p>
-          <button onClick={handleAddBtn} className={Styles.addButton}>
-            + Add new link
-          </button>
-          {platforms.map((platform, index) => (
-            <Platform key={index} />
-          ))}
-          {showGetStarted && <GetStarted />}
-        </div>
-
-        <div className={Styles.saveContainer}>
-          <button
-            className={`${Styles.saveButton} ${
-              !showGetStarted ? Styles.visible : ""
-            }`}
-          >
-            Save
-          </button>
+        <div className={Styles.smartLogoAndContent}>
+          <Smartphone />
+          <div className={Styles.contentAndSaveCont}>
+            <div className={Styles.contentContainer}>
+              <h1 className={Styles.customizeH1}>Customize your links</h1>
+              <p className={Styles.customizeP}>
+                Add/edit/remove links below and then share all your profiles
+                with the world!
+              </p>
+              <button onClick={handleAddBtn} className={Styles.addButton}>
+                + Add new link
+              </button>
+              {platforms.map((platform, index) => (
+                <Platform key={index} />
+              ))}
+              {showGetStarted && <GetStarted />}
+            </div>
+            <div className={Styles.saveContainer}>
+              <button
+                className={`${Styles.saveButton} ${
+                  !showGetStarted ? Styles.visible : ""
+                }`}
+              >
+                Save
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
