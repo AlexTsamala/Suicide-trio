@@ -33,7 +33,9 @@ const ProfileDetails = ({ title, content }) => {
                   <h1 className={Styles.user_firstname}>{firstName}</h1>
                   <h2 className={Styles.user_lastname}>{lastName}</h2>
                 </div>
-                <span className={Styles.user_email}>{email}</span>
+                <div className={Styles.user_email_container}>
+                  <span className={Styles.user_email}>{email}</span>
+                </div>
               </div>
             </>
           ) : null}
