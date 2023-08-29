@@ -39,6 +39,7 @@ const ProfileForm = ({
                     type="text"
                     placeholder="John"
                     value={firstName}
+                    maxLength={16}
                     {...register("firstName", {
                       required: {
                         value: true,
@@ -63,6 +64,7 @@ const ProfileForm = ({
                     type="text"
                     name="lastName"
                     placeholder="Appleseed"
+                    maxLength={16}
                     className={Styles.input}
                     value={lastName}
                     {...register("lastName", {
@@ -88,6 +90,7 @@ const ProfileForm = ({
                     type="text"
                     name="email"
                     value={email}
+                    maxLength={37}
                     placeholder="email@example.com"
                     className={Styles.input}
                     // {...register("email", {
