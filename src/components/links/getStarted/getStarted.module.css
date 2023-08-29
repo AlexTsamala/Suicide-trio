@@ -62,3 +62,15 @@
     margin: auto;
   }
 }
+
+@media (min-width: 1440px) {
+  .getStartedContainer {
+    height: 469px;
+    padding: 62.5px 20px 62.5px 20px;
+  }
+
+  .illustration {
+    top: 62.5px;
+    left: 239px;
+  }
+}

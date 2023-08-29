@@ -256,3 +256,31 @@
     width: 91px;
   }
 }
+
+@media (min-width: 1440px) {
+  .navBar {
+    width: 1392px;
+    margin: 0 auto 24px auto;
+  }
+
+  .mainContainer {
+    width: 1416px;
+    height: 936px;
+    margin-top: 0;
+  }
+
+  .smartLogoAndContent {
+    width: 1392px;
+    display: flex;
+    margin: 0 auto 0 auto;
+  }
+
+  .contentContainer {
+    width: 808px;
+    height: 739px;
+  }
+
+  .saveContainer {
+    width: 808px;
+  }
+}
