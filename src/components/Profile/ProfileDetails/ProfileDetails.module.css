@@ -34,7 +34,7 @@
 .user_text_info {
   position: absolute;
   top: 181px;
-  right: 58px;
+  right: 75px;
   display: flex;
   flex-direction: column;
 }

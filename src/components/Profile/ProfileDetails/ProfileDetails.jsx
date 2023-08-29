@@ -3,6 +3,7 @@ import Image from "./illustration-phone-mockup.svg";
 import Styles from "./ProfileDetails.module.css";
 import ProfileImage from "../ProfileImage/ProfileImage";
 import ProfileForm from "../ProfileForm/ProfileForm";
+import { Smartphone } from "../../links/smartphone/Smartphone";
 
 const ProfileDetails = ({ title, content }) => {
   // firstName pass with props to ProfileForm
@@ -11,12 +12,15 @@ const ProfileDetails = ({ title, content }) => {
   const [email, setEmail] = useState("");
   const [userImageForMobile, setUserImageForMobile] = useState(null);
   const [formValidate, setFormValidate] = useState(false);
+
   return (
     <div className={Styles.body}>
       {/* Large Screen Styles (desktop) */}
       <div className={Styles.desktop}>
         <div className={Styles.mobile_content}>
-          <img src={Image} alt="Image" />
+          {/* <img src={Image} alt="Image" /> */}
+          {/* Import Desktop Mobile */}
+          <Smartphone />
           {formValidate ? (
             <>
               <img
