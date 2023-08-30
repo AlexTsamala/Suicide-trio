@@ -1,14 +1,5 @@
 {
-  "Users": [
-    {
-      "UserId": "",
-      "Email": "",
-      "Password": "",
-      "ImageSrc": "",
-      "FirstName": "",
-      "LastName": ""
-    }
-  ],
+  "Users": [],
   "Links": [
     { "UserId": "", "Platforms": [{ "PlatformName": "", "PlatformLink": "" }] }
   ]
