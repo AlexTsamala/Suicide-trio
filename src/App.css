@@ -61,24 +61,22 @@ input {
   caret-color: var(--clr-purple-pri);
 }
 
-  label:has(input.invalid, input[data-valid-url="false"]) span {
-    color: var(--clr-red);
-  }
-
-  input::placeholder {
-    color: var(--clr-dark-grey);
-    opacity: 0.5;
-  }
-
-  input:is(:focus, :hover) {
-    outline: none;
-    border: 1px solid var(--clr-purple-pri);
-    box-shadow: 0 0 32px var(--clr-purple-shadow);
-  }
-
-  input.invalid,
-  input[data-valid-url="false"] {
-    border-color: var(--clr-red);
-  }
+label:has(input.invalid, input[data-valid-url="false"]) span {
+  color: var(--clr-red);
 }
 
+input::placeholder {
+  color: var(--clr-dark-grey);
+  opacity: 0.5;
+}
+
+input:is(:focus, :hover) {
+  outline: none;
+  border: 1px solid var(--clr-purple-pri);
+  box-shadow: 0 0 32px var(--clr-purple-shadow);
+}
+
+input.invalid,
+input[data-valid-url="false"] {
+  border-color: var(--clr-red);
+}

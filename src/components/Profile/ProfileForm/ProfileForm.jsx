@@ -2,12 +2,14 @@ import Styles from "./ProfileForm.module.css";
 import { useForm } from "react-hook-form";
 
 const ProfileForm = ({
-  firstName,
-  setFirstName,
-  lastName,
-  setLastName,
-  email,
-  setEmail,
+  // firstName,
+  // setFirstName,
+  // lastName,
+  // setLastName,
+  // email,
+  // setEmail,
+  form,
+  setForm,
   userImageForMobile,
   setUserImageForMobile,
   formValidate,
@@ -21,6 +23,13 @@ const ProfileForm = ({
 
   const onSubmit = (data) => {
     setFormValidate(true);
+  };
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -38,14 +47,15 @@ const ProfileForm = ({
                   <input
                     type="text"
                     placeholder="John"
-                    value={firstName}
+                    value={form.firstName}
+                    maxLength={16}
                     {...register("firstName", {
                       required: {
                         value: true,
                         message: "Can’t be empty",
                       },
                     })}
-                    onChange={(e) => setFirstName(e.target.value)}
+                    onChange={handleChange}
                     className={Styles.input}
                   />
                   <p className={Styles.error_message}>
@@ -63,15 +73,16 @@ const ProfileForm = ({
                     type="text"
                     name="lastName"
                     placeholder="Appleseed"
+                    maxLength={16}
                     className={Styles.input}
-                    value={lastName}
+                    value={form.lastName}
                     {...register("lastName", {
                       required: {
                         value: true,
                         message: "Can’t be empty",
                       },
                     })}
-                    onChange={(e) => setLastName(e.target.value)}
+                    onChange={handleChange}
                   />
                   <p className={Styles.error_message}>
                     {errors.lastName?.message}
@@ -87,16 +98,11 @@ const ProfileForm = ({
                   <input
                     type="text"
                     name="email"
-                    value={email}
+                    value={form.email}
+                    maxLength={37}
                     placeholder="email@example.com"
                     className={Styles.input}
-                    // {...register("email", {
-                    //   required: {
-                    //     value: true,
-                    //     message: "Can’t be empty",
-                    //   },
-                    // })}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleChange}
                   />
                 </div>
               </div>

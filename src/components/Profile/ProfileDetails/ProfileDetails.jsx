@@ -1,22 +1,30 @@
 import { useState } from "react";
-import Image from "./illustration-phone-mockup.svg";
 import Styles from "./ProfileDetails.module.css";
 import ProfileImage from "../ProfileImage/ProfileImage";
 import ProfileForm from "../ProfileForm/ProfileForm";
+import { Smartphone } from "../../links/smartphone/Smartphone";
 
 const ProfileDetails = ({ title, content }) => {
   // firstName pass with props to ProfileForm
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [email, setEmail] = useState("");
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
   const [userImageForMobile, setUserImageForMobile] = useState(null);
   const [formValidate, setFormValidate] = useState(false);
+
   return (
     <div className={Styles.body}>
       {/* Large Screen Styles (desktop) */}
       <div className={Styles.desktop}>
         <div className={Styles.mobile_content}>
-          <img src={Image} alt="Image" />
+          {/* <img src={Image} alt="Image" /> */}
+          {/* Import Desktop Mobile */}
+          <Smartphone />
           {formValidate ? (
             <>
               <img
@@ -26,10 +34,12 @@ const ProfileDetails = ({ title, content }) => {
               />
               <div className={Styles.user_text_info}>
                 <div className={Styles.user_names}>
-                  <h1 className={Styles.user_firstname}>{firstName}</h1>
-                  <h2 className={Styles.user_lastname}>{lastName}</h2>
+                  <h1 className={Styles.user_firstname}>{form.firstName}</h1>
+                  <h2 className={Styles.user_lastname}>{form.lastName}</h2>
                 </div>
-                <span className={Styles.user_email}>{email}</span>
+                <div className={Styles.user_email_container}>
+                  <span className={Styles.user_email}>{form.email}</span>
+                </div>
               </div>
             </>
           ) : null}
@@ -46,12 +56,14 @@ const ProfileDetails = ({ title, content }) => {
           setUserImageForMobile={setUserImageForMobile}
         />
         <ProfileForm
-          firstName={firstName}
-          setFirstName={setFirstName}
-          lastName={lastName}
-          setLastName={setLastName}
-          email={email}
-          setEmail={setEmail}
+          // firstName={firstName}
+          // setFirstName={setFirstName}
+          // lastName={lastName}
+          // setLastName={setLastName}
+          // email={email}
+          // setEmail={setEmail}
+          form={form}
+          setForm={setForm}
           userImageForMobile={userImageForMobile}
           setUserImageForMobile={setUserImageForMobile}
           formValidate={formValidate}
