@@ -5,10 +5,12 @@ import "./App.css";
 import { AddLinks } from "./components/links/addLinks/AddLinks";
 import Profile from "./components/Profile/Profile";
 import Preview from "./components/Preview/Preview";
+// import Header from "./components/Profile/Header/Header";
 
 function App() {
   return (
     <>
+      {/* <Header /> */}
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"

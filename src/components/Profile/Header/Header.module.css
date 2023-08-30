@@ -27,6 +27,10 @@ ul {
   transition: 0.3s ease;
 }
 
+.link_box {
+  padding: 11px 20px;
+}
+
 .link_box:hover {
   background-color: #efebff;
   color: #633cff;
@@ -78,6 +82,7 @@ ul {
 .profile_text,
 .link_text {
   display: none;
+  color: #737373;
 }
 
 @media screen and (min-width: 768px) {

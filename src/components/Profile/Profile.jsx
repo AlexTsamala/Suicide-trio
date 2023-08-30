@@ -1,5 +1,5 @@
 // import ProfileHeader from "./ProfileHeader/ProfileHeader";
-import Header from "./Header.jsx/Header";
+import Header from "./Header/Header";
 import ProfileDetails from "./ProfileDetails/ProfileDetails";
 
 const Profile = () => {

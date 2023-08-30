@@ -2,6 +2,7 @@ import { useState } from "react";
 import Styles from "./ProfileDetails.module.css";
 import ProfileImage from "../ProfileImage/ProfileImage";
 import ProfileForm from "../ProfileForm/ProfileForm";
+import SaveIcon from "../../../assets/images/icon-changes-saved.svg";
 import { Smartphone } from "../../links/smartphone/Smartphone";
 
 const ProfileDetails = ({ title, content }) => {
@@ -9,6 +10,7 @@ const ProfileDetails = ({ title, content }) => {
   // const [firstName, setFirstName] = useState("");
   // const [lastName, setLastName] = useState("");
   // const [email, setEmail] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -22,16 +24,18 @@ const ProfileDetails = ({ title, content }) => {
       {/* Large Screen Styles (desktop) */}
       <div className={Styles.desktop}>
         <div className={Styles.mobile_content}>
-          {/* <img src={Image} alt="Image" /> */}
           {/* Import Desktop Mobile */}
           <Smartphone />
           {formValidate ? (
             <>
-              <img
-                src={userImageForMobile}
-                alt="user-profile-image"
-                className={Styles.user_img}
-              />
+              {userImageForMobile && (
+                <img
+                  src={userImageForMobile}
+                  alt="user-profile-image"
+                  className={Styles.user_img}
+                />
+              )}
+
               <div className={Styles.user_text_info}>
                 <div className={Styles.user_names}>
                   <h1 className={Styles.user_firstname}>{form.firstName}</h1>
@@ -41,6 +45,21 @@ const ProfileDetails = ({ title, content }) => {
                   <span className={Styles.user_email}>{form.email}</span>
                 </div>
               </div>
+              {/* Alert */}
+              {showAlert && (
+                <div className={Styles.alert}>
+                  <div className={Styles.alert_content}>
+                    <img
+                      src={SaveIcon}
+                      alt="SaveIcon"
+                      className={Styles.aleret_image}
+                    />
+                    <h4 className={Styles.alert_text}>
+                      Your changes have been successfully saved!
+                    </h4>
+                  </div>
+                </div>
+              )}
             </>
           ) : null}
         </div>
@@ -64,6 +83,8 @@ const ProfileDetails = ({ title, content }) => {
           // setEmail={setEmail}
           form={form}
           setForm={setForm}
+          showAlert={showAlert}
+          setShowAlert={setShowAlert}
           userImageForMobile={userImageForMobile}
           setUserImageForMobile={setUserImageForMobile}
           formValidate={formValidate}
