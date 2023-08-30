@@ -10,6 +10,10 @@ const ProfileForm = ({
   // setEmail,
   form,
   setForm,
+  saveClicked,
+  setSaveClicked,
+  showAlert,
+  setShowAlert,
   userImageForMobile,
   setUserImageForMobile,
   formValidate,
@@ -48,7 +52,7 @@ const ProfileForm = ({
                     type="text"
                     placeholder="John"
                     value={form.firstName}
-                    maxLength={16}
+                    maxLength={15}
                     {...register("firstName", {
                       required: {
                         value: true,
@@ -73,7 +77,7 @@ const ProfileForm = ({
                     type="text"
                     name="lastName"
                     placeholder="Appleseed"
-                    maxLength={16}
+                    maxLength={17}
                     className={Styles.input}
                     value={form.lastName}
                     {...register("lastName", {
@@ -112,6 +116,12 @@ const ProfileForm = ({
         <div className={Styles.btn}>
           <button
             className={Styles.save_button}
+            onClick={() => {
+              setShowAlert(true);
+              setTimeout(() => {
+                setShowAlert(false);
+              }, 5000);
+            }}
             onSubmit={handleSubmit(onSubmit)}
             type="submit"
           >
