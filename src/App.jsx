@@ -8,14 +8,20 @@ import Preview from "./components/Preview/Preview";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/login" replace />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/addLinks" element={<AddLinks />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/preview" element={<Preview />} />
-    </Routes>
+    <>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+      ></meta>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/addLinks" element={<AddLinks />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/preview" element={<Preview />} />
+      </Routes>
+    </>
   );
 }
 
