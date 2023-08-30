@@ -44,66 +44,72 @@ export default function Signup() {
       <div className={styles.logo}>
         <DevlinksLogoLg />
       </div>
-      <div className={styles.header}>
-        <h2>Create Account</h2>
-        <p>Let`s get you started sharing your links!</p>
-      </div>
-      <form action="" onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <label htmlFor="email">
-          <EmailIcon />
-          <span>Email address</span>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={input.email}
-            {...register("email", { required: true })}
-            className={errors.email ? "invalid" : ""}
-            onChange={(e) =>
-              setInput({ ...input, [e.target.name]: e.target.value })
-            }
-            placeholder="e.g. alex@email.com"
-          />
-        </label>
-        <label htmlFor="create-password">
-          <LockIcon />
-          <span>Create password</span>
-          <input
-            type="password"
-            id="create-password"
-            name="password"
-            value={input.password}
-            {...register("password", { required: true })}
-            className={errors.password ? "invalid" : ""}
-            onChange={(e) => setInput({ ...input, password: e.target.value })}
-            placeholder="At least 8 characters"
-          />
-        </label>
-        <label htmlFor="confirm-password">
-          <LockIcon />
-          <span>Confirm password</span>
-          <input
-            type="password"
-            name="confirm-password"
-            id="confirm-password"
-            value={input.confirmPassword}
-            {...register("confirmPassword", {
-              validate: (value) => value === getValues("confirmPassword"),
-              required: true,
-            })}
-            className={errors.password ? "invalid" : ""}
-            onChange={(e) =>
-              setInput({ ...input, confirmPassword: e.target.value })
-            }
-            placeholder="At least 8 characters"
-          />
-        </label>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h2>Create Account</h2>
+          <p>Let`s get you started sharing your links!</p>
+        </div>
+        <form
+          action=""
+          onSubmit={handleSubmit(onSubmit)}
+          className={styles.form}
+        >
+          <label htmlFor="email">
+            <EmailIcon />
+            <span>Email address</span>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={input.email}
+              {...register("email", { required: true })}
+              className={errors.email ? "invalid" : ""}
+              onChange={(e) =>
+                setInput({ ...input, [e.target.name]: e.target.value })
+              }
+              placeholder="e.g. alex@email.com"
+            />
+          </label>
+          <label htmlFor="create-password">
+            <LockIcon />
+            <span>Create password</span>
+            <input
+              type="password"
+              id="create-password"
+              name="password"
+              value={input.password}
+              {...register("password", { required: true })}
+              className={errors.password ? "invalid" : ""}
+              onChange={(e) => setInput({ ...input, password: e.target.value })}
+              placeholder="At least 8 characters"
+            />
+          </label>
+          <label htmlFor="confirm-password">
+            <LockIcon />
+            <span>Confirm password</span>
+            <input
+              type="password"
+              name="confirm-password"
+              id="confirm-password"
+              value={input.confirmPassword}
+              {...register("confirmPassword", {
+                validate: (value) => value === getValues("confirmPassword"),
+                required: true,
+              })}
+              className={errors.password ? "invalid" : ""}
+              onChange={(e) =>
+                setInput({ ...input, confirmPassword: e.target.value })
+              }
+              placeholder="At least 8 characters"
+            />
+          </label>
 
-        <Button type="submit">Create new account</Button>
-      </form>
-      <p style={{ textAlign: "center" }}>
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
+          <Button type="submit">Create new account</Button>
+        </form>
+        <p style={{ textAlign: "center" }}>
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </div>
     </main>
   );
 }

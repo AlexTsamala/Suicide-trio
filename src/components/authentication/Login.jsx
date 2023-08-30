@@ -39,46 +39,52 @@ export default function Login() {
       <div className={styles.logo}>
         <DevlinksLogoLg />
       </div>
-      <div className={styles.header}>
-        <h2>Login</h2>
-        <p>Add your details below to get back into the app</p>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h2>Login</h2>
+          <p>Add your details below to get back into the app</p>
+        </div>
+        <form
+          action=""
+          onSubmit={handleSubmit(onSubmit)}
+          className={styles.form}
+        >
+          <label htmlFor="email">
+            <EmailIcon />
+            <span>Email address</span>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={input.email}
+              {...register("email", { required: true })}
+              className={errors.email ? "invalid" : ""}
+              onChange={(e) =>
+                setInput({ ...input, [e.target.name]: e.target.value })
+              }
+              placeholder="e.g. alex@email.com"
+            />
+          </label>
+          <label htmlFor="password">
+            <LockIcon />
+            <span>Password</span>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={input.password}
+              {...register("password", { required: true })}
+              className={errors.password ? "invalid" : ""}
+              onChange={(e) => setInput({ ...input, password: e.target.value })}
+              placeholder="Enter your password"
+            />
+          </label>
+          <Button type="submit">Login</Button>
+        </form>
+        <p style={{ textAlign: "center" }}>
+          Don`t have an account? <Link to="/signup">Create account</Link>
+        </p>
       </div>
-      <form action="" onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <label htmlFor="email">
-          <EmailIcon />
-          <span>Email address</span>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={input.email}
-            {...register("email", { required: true })}
-            className={errors.email ? "invalid" : ""}
-            onChange={(e) =>
-              setInput({ ...input, [e.target.name]: e.target.value })
-            }
-            placeholder="e.g. alex@email.com"
-          />
-        </label>
-        <label htmlFor="password">
-          <LockIcon />
-          <span>Password</span>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={input.password}
-            {...register("password", { required: true })}
-            className={errors.password ? "invalid" : ""}
-            onChange={(e) => setInput({ ...input, password: e.target.value })}
-            placeholder="Enter your password"
-          />
-        </label>
-        <Button type="submit">Login</Button>
-      </form>
-      <p style={{ textAlign: "center" }}>
-        Don`t have an account? <Link to="/signup">Create account</Link>
-      </p>
     </main>
   );
 }

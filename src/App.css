@@ -15,7 +15,7 @@ label[data-select="true"] > div:first-of-type {
 label {
   position: relative;
   display: grid;
-  row-gap: 8px;
+  row-gap: 4px;
   font: var(--font-body-sm);
   color: var(--clr-dark-grey);
 }
@@ -80,3 +80,22 @@ input.invalid,
 input[data-valid-url="false"] {
   border-color: var(--clr-red);
 }
+
+@media screen and (max-width: 767px) {
+  .label{
+      font-size: 0.75rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  label {
+    width: 396px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  label {
+    width: 364px;
+  }
+}
+
