@@ -5,9 +5,8 @@ import EmailIcon from "../authentication/icons/EmailIcon";
 import LockIcon from "../authentication/icons/LockIcon";
 import Button from "../button/Button";
 import { useState } from "react";
-import { useForm } from "react-hook-form"
-// import Data from "../../Data.Json";
-
+import { useForm } from "react-hook-form";
+import Data from "../../../Data.json";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -16,12 +15,19 @@ export default function Login() {
     password: "",
   });
 
-  const { register, handleSubmit, formState: { errors } } = useForm(); 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data) => {
     const loggedUser = JSON.parse(localStorage.getItem("user"));
-    // console.log(Data);
-    if (data.email === loggedUser.email && data.password === loggedUser.password) {
+    console.log(Data);
+    if (
+      data.email === loggedUser.email &&
+      data.password === loggedUser.password
+    ) {
       navigate("/addlinks");
     } else {
       alert("Wrong Email Or Password");
@@ -46,11 +52,11 @@ export default function Login() {
             name="email"
             id="email"
             value={input.email}
-            {...register("email", { required: true })} 
+            {...register("email", { required: true })}
             className={errors.email ? "invalid" : ""}
             onChange={(e) =>
-                setInput({ ...input, [e.target.name]: e.target.value })
-              }
+              setInput({ ...input, [e.target.name]: e.target.value })
+            }
             placeholder="e.g. alex@email.com"
           />
         </label>

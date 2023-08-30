@@ -6,10 +6,10 @@ import LockIcon from "../authentication/icons/LockIcon";
 import Button from "../button/Button";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-// import Data from "../../Data.Json";
-// import { v4 as uuidv4 } from 'uuid';
+import Data from "../../../Data.json";
+import { v4 as uuidv4 } from "uuid";
 
-export default function Signup () {
+export default function Signup() {
   const navigate = useNavigate();
 
   const [input, setInput] = useState({
@@ -17,18 +17,25 @@ export default function Signup () {
     password: "",
     confirmPassword: "",
   });
-  
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     getValues,
-  } = useForm(); 
+  } = useForm();
 
   const onSubmit = (data) => {
-    // const myUUID = uuidv4();
+    const myUUID = uuidv4();
     localStorage.setItem("user", JSON.stringify(data));
-    // Data.Users.push({UserId:myUUID, email:"", password:""});
+
+    const newUser = {
+      UserId: myUUID,
+      email: data.email,
+      password: data.password,
+    };
+
+    Data.Users.push(newUser);
     navigate("/login");
   };
 
@@ -82,7 +89,7 @@ export default function Signup () {
             value={input.confirmPassword}
             {...register("confirmPassword", {
               validate: (value) => value === getValues("confirmPassword"),
-              required: true
+              required: true,
             })}
             className={errors.password ? "invalid" : ""}
             onChange={(e) =>
