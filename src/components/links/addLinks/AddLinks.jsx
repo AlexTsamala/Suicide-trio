@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./addLinks.module.css";
 import mobileDevLinkLogo from "../linksAssets/logo-devlinks-small.svg";
 import tabletDevLinkLogo from "../linksAssets/logo-devlinks-large.svg";
@@ -8,14 +8,19 @@ import previewLogo from "../linksAssets/icon-preview-header.svg";
 import { GetStarted } from "../getStarted/GetStarted";
 import { Platform } from "../platform/Platform";
 import { Smartphone } from "../smartphone/Smartphone";
+import { v4 as uuidv4 } from "uuid";
 
 export const AddLinks = () => {
   const [platforms, setPlatforms] = useState([]);
   const [showGetStarted, setShowGetStarted] = useState(true);
 
   function handleAddBtn() {
+    const myUUID = uuidv4();
     setShowGetStarted(false);
-    setPlatforms([...platforms, {}]);
+    setPlatforms([
+      ...platforms,
+      { value: "Github", label: "Github", input: "", id: myUUID },
+    ]);
   }
 
   return (
@@ -63,8 +68,14 @@ export const AddLinks = () => {
               <button onClick={handleAddBtn} className={Styles.addButton}>
                 + Add new link
               </button>
-              {platforms.map((platform, index) => (
-                <Platform key={index} />
+              {platforms.map((item, index) => (
+                <Platform
+                  key={index}
+                  count={index + 1}
+                  platforms={platforms}
+                  setPlatforms={setPlatforms}
+                  currentPlatform={item}
+                />
               ))}
               {showGetStarted && <GetStarted />}
             </div>
