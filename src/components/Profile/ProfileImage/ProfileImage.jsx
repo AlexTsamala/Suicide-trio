@@ -5,7 +5,9 @@ import UploadImage from "../../../assets/images/icon-upload-image.svg";
 const ProfileImage = ({ userImageForMobile, setUserImageForMobile }) => {
   const { handleSubmit } = useForm();
 
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+    setUserImageForMobile(data.picture);
+  };
 
   const handleImageChange = (event) => {
     setUserImageForMobile(URL.createObjectURL(event.target.files[0]));
