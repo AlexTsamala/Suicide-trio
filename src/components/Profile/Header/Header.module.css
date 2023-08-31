@@ -16,6 +16,14 @@ ul {
   justify-content: space-between;
 }
 
+.link_text_active {
+  color: #633cff;
+}
+
+.profile_text_active {
+  color: #633cff;
+}
+
 .link_box,
 .profile_box {
   align-items: center;
@@ -30,6 +38,38 @@ ul {
 
 .link_box {
   padding: 11px 20px;
+}
+
+.profile_box {
+  padding: 11px 20px;
+}
+
+.link_box_active {
+  background-color: #efebff;
+  color: #633cff;
+  padding: 11px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.profile_box_active {
+  background-color: #efebff;
+  color: #633cff;
+  padding: 11px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  border-radius: 8px;
+  align-items: center;
 }
 
 .link_box:hover {
