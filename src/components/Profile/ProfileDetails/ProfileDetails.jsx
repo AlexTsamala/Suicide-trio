@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Styles from "./ProfileDetails.module.css";
 import ProfileImage from "../ProfileImage/ProfileImage";
 import ProfileForm from "../ProfileForm/ProfileForm";
 import SaveIcon from "../../../assets/images/icon-changes-saved.svg";
 import { Smartphone } from "../../links/smartphone/Smartphone";
+import data from "../../../../Data.json";
 
 const ProfileDetails = ({ title, content }) => {
   const [showAlert, setShowAlert] = useState(false);
@@ -23,6 +24,31 @@ const ProfileDetails = ({ title, content }) => {
       lastName: userData.lastName,
       email: userData.email,
     });
+    const currentUserData = JSON.parse(localStorage.getItem("currentUser"));
+    const indexOfData = data.Profile.findIndex(
+      (user) => user.userId === currentUserData.userId
+    );
+    if (indexOfData) {
+      data.Profile.splice(indexOfData, 1);
+      data.Profile.push({
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        email: userData.email,
+        userId: currentUserData.UserId,
+        imgUrl: userData.picture,
+      });
+    } else {
+      data.Profile.push({
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        email: userData.email,
+        userId: currentUserData.UserId,
+        imgUrl: userData.picture,
+      });
+    }
+
+    console.log(data.Profile);
+
     setUserImageForMobile(userData.picture);
     setShowAlert(true);
   };
@@ -85,7 +111,7 @@ const ProfileDetails = ({ title, content }) => {
           form={form}
           setForm={setForm}
           setShowAlert={setShowAlert}
-          onSave={handleFormSubmit} // Pass the handleFormSubmit function
+          onSave={handleFormSubmit}
           userImageForMobile={userImageForMobile}
           setUserImageForMobile={setUserImageForMobile}
           formValidate={formValidate}
