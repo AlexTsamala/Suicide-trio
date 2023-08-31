@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Styles from "./ProfileDetails.module.css";
 import ProfileImage from "../ProfileImage/ProfileImage";
 import ProfileForm from "../ProfileForm/ProfileForm";
@@ -6,19 +6,26 @@ import SaveIcon from "../../../assets/images/icon-changes-saved.svg";
 import { Smartphone } from "../../links/smartphone/Smartphone";
 
 const ProfileDetails = ({ title, content }) => {
-  // firstName pass with props to ProfileForm
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [email, setEmail] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
     email: "",
   });
+
   const [userImageForMobile, setUserImageForMobile] = useState(null);
   const [formValidate, setFormValidate] = useState(false);
 
+  const handleFormSubmit = (userData) => {
+    console.log("User Data:", userData);
+    setForm({
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      email: userData.email,
+    });
+    setUserImageForMobile(userData.picture);
+    setShowAlert(true);
+  };
   return (
     <div className={Styles.body}>
       {/* Large Screen Styles (desktop) */}
@@ -75,16 +82,10 @@ const ProfileDetails = ({ title, content }) => {
           setUserImageForMobile={setUserImageForMobile}
         />
         <ProfileForm
-          // firstName={firstName}
-          // setFirstName={setFirstName}
-          // lastName={lastName}
-          // setLastName={setLastName}
-          // email={email}
-          // setEmail={setEmail}
           form={form}
           setForm={setForm}
-          showAlert={showAlert}
           setShowAlert={setShowAlert}
+          onSave={handleFormSubmit} // Pass the handleFormSubmit function
           userImageForMobile={userImageForMobile}
           setUserImageForMobile={setUserImageForMobile}
           formValidate={formValidate}
