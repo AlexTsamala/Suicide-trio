@@ -1,4 +1,4 @@
-import { Link, json, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DevlinksLogoLg from "../../components/authentication/icons/DevlinksLogoLg";
 import styles from "./authentication.module.css";
 import EmailIcon from "../authentication/icons/EmailIcon";

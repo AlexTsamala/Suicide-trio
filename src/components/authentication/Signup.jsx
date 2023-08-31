@@ -81,6 +81,7 @@ export default function Signup() {
               {...register("password", { required: true })}
               className={errors.password ? "invalid" : ""}
               onChange={(e) => setInput({ ...input, password: e.target.value })}
+              minLength={8}
               placeholder="At least 8 characters"
             />
           </label>
@@ -100,6 +101,7 @@ export default function Signup() {
               onChange={(e) =>
                 setInput({ ...input, confirmPassword: e.target.value })
               }
+              minLength={8}
               placeholder="At least 8 characters"
             />
           </label>
