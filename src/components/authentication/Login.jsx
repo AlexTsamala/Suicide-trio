@@ -10,6 +10,7 @@ import Data from "../../../Data.json";
 
 export default function Login() {
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -34,7 +35,7 @@ export default function Login() {
       );
       localStorage.setItem("currentUser", JSON.stringify(currentUserData));
     } else {
-      alert("Wrong Email Or Password");
+      setErrorMessage("Wrong email or password");
     }
   };
 
@@ -83,6 +84,9 @@ export default function Login() {
               placeholder="Enter your password"
             />
           </label>
+          {errorMessage && (
+            <span className={styles.errormessage}>{errorMessage}</span>
+          )}
           <Button type="submit">Login</Button>
         </form>
         <p style={{ textAlign: "center" }}>
