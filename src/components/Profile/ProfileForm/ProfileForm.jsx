@@ -27,9 +27,9 @@ const ProfileForm = ({
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
-      picture: userImageForMobile, // Use the selected image URL
+      picture: userImageForMobile,
     };
-    onSave(userData); // Pass the complete user data to the onSave function
+    onSave(userData);
     setFormValidate(true);
   };
 
