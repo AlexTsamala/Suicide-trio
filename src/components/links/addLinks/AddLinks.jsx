@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Styles from "./addLinks.module.css";
-import mobileDevLinkLogo from "../linksAssets/logo-devlinks-small.svg";
-import tabletDevLinkLogo from "../linksAssets/logo-devlinks-large.svg";
-import linkLogo from "../linksAssets/ph_link-bold.svg";
-import profileLogo from "../linksAssets/icon-profile-details-header.svg";
-import previewLogo from "../linksAssets/icon-preview-header.svg";
+// import mobileDevLinkLogo from "../linksAssets/logo-devlinks-small.svg";
+// import tabletDevLinkLogo from "../linksAssets/logo-devlinks-large.svg";
+// import linkLogo from "../linksAssets/ph_link-bold.svg";
+// import profileLogo from "../linksAssets/icon-profile-details-header.svg";
+// import previewLogo from "../linksAssets/icon-preview-header.svg";
 import { GetStarted } from "../getStarted/GetStarted";
 import { Platform } from "../platform/Platform";
 import { Smartphone } from "../smartphone/Smartphone";
 import { v4 as uuidv4 } from "uuid";
+import Header from "../../Profile/Header/Header";
+import Data from "../../../../Data.json";
 
 export const AddLinks = () => {
   const [platforms, setPlatforms] = useState([]);
@@ -23,10 +25,33 @@ export const AddLinks = () => {
     ]);
   }
 
+  function handleSaveBtn() {
+    const savedPlatforms = platforms.map((platform) => {
+      return {
+        value: platform.value,
+        label: platform.label,
+        input: platform.input,
+        id: platform.id,
+      };
+    });
+
+    const userData = JSON.parse(localStorage.getItem("currentUser"));
+
+    const newData = {
+      Links: [
+        ...Data.Links,
+        { UserId: userData.UserId, Platforms: savedPlatforms },
+      ],
+    };
+
+    console.log(savedPlatforms);
+  }
+
   return (
     <div className={Styles.body}>
       <div className={Styles.mainContainer}>
-        <div className={Styles.navBar}>
+        <Header />
+        {/* <div className={Styles.navBar}>
           <img
             className={Styles.mobileDevLinkLogo}
             src={mobileDevLinkLogo}
@@ -55,7 +80,7 @@ export const AddLinks = () => {
             />
             <p className={Styles.previewP}>Preview</p>
           </div>
-        </div>
+        </div> */}
         <div className={Styles.smartLogoAndContent}>
           <Smartphone />
           <div className={Styles.contentAndSaveCont}>
@@ -81,6 +106,7 @@ export const AddLinks = () => {
             </div>
             <div className={Styles.saveContainer}>
               <button
+                onClick={handleSaveBtn}
                 className={`${Styles.saveButton} ${
                   !showGetStarted ? Styles.visible : ""
                 }`}

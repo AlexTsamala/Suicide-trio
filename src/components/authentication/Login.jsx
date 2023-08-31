@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, json, useNavigate } from "react-router-dom";
 import DevlinksLogoLg from "../../components/authentication/icons/DevlinksLogoLg";
 import styles from "./authentication.module.css";
 import EmailIcon from "../authentication/icons/EmailIcon";
@@ -29,6 +29,10 @@ export default function Login() {
       data.password === loggedUser.password
     ) {
       navigate("/addlinks");
+      const currentUserData = Data.Users.find(
+        (user) => user.email === data.email
+      );
+      localStorage.setItem("currentUser", JSON.stringify(currentUserData));
     } else {
       alert("Wrong Email Or Password");
     }

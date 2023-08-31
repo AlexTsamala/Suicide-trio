@@ -19,6 +19,7 @@ import freeCodeCampIcon from "../linksAssets/icon-freecodecamp.svg";
 import gitlabIcon from "../linksAssets/icon-gitlab.svg";
 import hashnodeIcon from "../linksAssets/icon-hashnode.svg";
 import stackoverflowIcon from "../linksAssets/icon-stack-overflow.svg";
+import Data from "../../../../Data.json";
 
 const platformOptions = [
   { value: "Github", label: "Github" },
