@@ -9,7 +9,6 @@ import { GetStarted } from "../getStarted/GetStarted";
 import { Platform } from "../platform/Platform";
 import { Smartphone } from "../smartphone/Smartphone";
 import { v4 as uuidv4 } from "uuid";
-import Header from "../../Profile/Header/Header";
 import Data from "../../../../Data.json";
 
 export const AddLinks = () => {
@@ -50,7 +49,6 @@ export const AddLinks = () => {
   return (
     <div className={Styles.body}>
       <div className={Styles.mainContainer}>
-        <Header />
         {/* <div className={Styles.navBar}>
           <img
             className={Styles.mobileDevLinkLogo}
