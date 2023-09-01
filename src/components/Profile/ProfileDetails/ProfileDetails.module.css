@@ -1,5 +1,5 @@
 .body {
-  padding: 16px;
+  padding: 0px 16px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -14,8 +14,8 @@
   width: 98px;
   height: 98px;
   position: absolute;
-  top: 123px;
-  left: 206px;
+  top: 163px;
+  left: 232px;
   border-radius: 96px;
   border: 2px solid var(--purple, #633cff);
   background: lightgray 50% / cover no-repeat, #eee;
@@ -26,7 +26,7 @@
   max-width: 100%;
   width: 100%;
   overflow: hidden;
-  top: 239px;
+  top: 280px;
   right: 13px;
   margin: auto;
   display: flex;
@@ -41,7 +41,7 @@
   width: 100%;
   max-width: 100%;
   position: absolute;
-  top: 256px;
+  top: 297px;
   right: 11px;
   text-align: center;
 }
@@ -147,7 +147,7 @@
   }
   .main {
     width: 808px;
-    height: 750px;
+    height: 834px;
   }
   .title {
     font-size: 32px;

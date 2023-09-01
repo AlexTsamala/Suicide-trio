@@ -2,19 +2,11 @@ import Styles from "./ProfileForm.module.css";
 import { useForm } from "react-hook-form";
 
 const ProfileForm = ({
-  // firstName,
-  // setFirstName,
-  // lastName,
-  // setLastName,
-  // email,
-  // setEmail,
   form,
   setForm,
-  saveClicked,
-  setSaveClicked,
-  showAlert,
-  setShowAlert,
+  onSave,
   userImageForMobile,
+  setShowAlert,
   setUserImageForMobile,
   formValidate,
   setFormValidate,
@@ -25,7 +17,19 @@ const ProfileForm = ({
     formState: { errors },
   } = useForm();
 
+  // const onSubmit = (data) => {
+  //   setFormValidate(true);
+  //   console.log(data);
+  // };
+
   const onSubmit = (data) => {
+    const userData = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      picture: userImageForMobile,
+    };
+    onSave(userData);
     setFormValidate(true);
   };
 
@@ -95,9 +99,7 @@ const ProfileForm = ({
               </div>
               {/* Email */}
               <div className={Styles.email_input_box}>
-                <label htmlFor="email" className={Styles.label}>
-                  Email
-                </label>
+                <label className={Styles.label}>Email</label>
                 <div className={Styles.email_input_content}>
                   <input
                     type="text"
@@ -106,6 +108,9 @@ const ProfileForm = ({
                     maxLength={37}
                     placeholder="email@example.com"
                     className={Styles.input}
+                    {...register("email", {
+                      // Validation rules for email field can be added here
+                    })}
                     onChange={handleChange}
                   />
                 </div>
@@ -122,6 +127,7 @@ const ProfileForm = ({
                 setShowAlert(false);
               }, 5000);
             }}
+            // onSubmit={handleSubmit(onSubmit)}
             onSubmit={handleSubmit(onSubmit)}
             type="submit"
           >
