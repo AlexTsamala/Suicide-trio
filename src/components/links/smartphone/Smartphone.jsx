@@ -93,29 +93,32 @@ export const Smartphone = ({ userPlatforms }) => {
         alt="Smartphone Icon"
       />
       <div className={Styles.platformsArr}>
-        {userPlatforms.map((item, index) => (
-          <div
-            style={{ backgroundColor: formatLinkStyles(item) }}
-            key={index}
-            className={`${Styles.platform} ${item.value}`}
-          >
-            <div className={Styles.IconAndName}>
-              <img
-                className={Styles.icon}
-                src={
-                  smartphoneLinkIcons.find((icon) => icon.label === item.value)
-                    ?.src
-                }
-              ></img>
-              <span className={Styles.platformN}>{item.value}</span>
-            </div>
-            <img
-              className={`${item.value}Arrow`}
-              src={arrowR}
-              alt={`${item.value} Arrow`}
-            />
-          </div>
-        ))}
+        {userPlatforms
+          ? userPlatforms.map((item, index) => (
+              <div
+                style={{ backgroundColor: formatLinkStyles(item) }}
+                key={index}
+                className={`${Styles.platform} ${item.value}`}
+              >
+                <div className={Styles.IconAndName}>
+                  <img
+                    className={Styles.icon}
+                    src={
+                      smartphoneLinkIcons.find(
+                        (icon) => icon.label === item.value
+                      )?.src
+                    }
+                  ></img>
+                  <span className={Styles.platformN}>{item.value}</span>
+                </div>
+                <img
+                  className={`${item.value}Arrow`}
+                  src={arrowR}
+                  alt={`${item.value} Arrow`}
+                />
+              </div>
+            ))
+          : null}
       </div>
     </div>
   );
