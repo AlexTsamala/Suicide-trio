@@ -17,11 +17,6 @@ const ProfileForm = ({
     formState: { errors },
   } = useForm();
 
-  // const onSubmit = (data) => {
-  //   setFormValidate(true);
-  //   console.log(data);
-  // };
-
   const onSubmit = (data) => {
     const userData = {
       firstName: data.firstName,
