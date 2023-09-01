@@ -22,7 +22,10 @@ function App() {
       ) : null}
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
-        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated}/>} />
+        <Route
+          path="/login"
+          element={<Login setIsAuthenticated={setIsAuthenticated} />}
+        />
         <Route path="/signup" element={<Signup />} />
         <Route path="/addLinks" element={<AddLinks />} />
         <Route path="/profile" element={<Profile />} />
@@ -30,15 +33,30 @@ function App() {
 
         <Route
           path="/addLinks"
-          element={<PrivateRoute isAuthenticated={isAuthenticated} element={<AddLinks />} />}
+          element={
+            <PrivateRoute
+              isAuthenticated={isAuthenticated}
+              element={<AddLinks />}
+            />
+          }
         />
         <Route
           path="/profile"
-          element={<PrivateRoute isAuthenticated={isAuthenticated} element={<Profile />} />}
+          element={
+            <PrivateRoute
+              isAuthenticated={isAuthenticated}
+              element={<Profile />}
+            />
+          }
         />
         <Route
           path="/preview"
-          element={<PrivateRoute isAuthenticated={isAuthenticated} element={<Preview />} />}
+          element={
+            <PrivateRoute
+              isAuthenticated={isAuthenticated}
+              element={<Preview />}
+            />
+          }
         />
       </Routes>
     </>
