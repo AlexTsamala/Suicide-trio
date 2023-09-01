@@ -1,20 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Styles from "./ProfileDetails.module.css";
 import ProfileImage from "../ProfileImage/ProfileImage";
 import ProfileForm from "../ProfileForm/ProfileForm";
 import SaveIcon from "../../../assets/images/icon-changes-saved.svg";
 import { Smartphone } from "../../links/smartphone/Smartphone";
-import Data from "../../../../Data.json";
+import data from "../../../../Data.json";
 
 const ProfileDetails = ({ title, content }) => {
-  const [userImageForMobile, setUserImageForMobile] = useState(null);
-  const [formValidate, setFormValidate] = useState(false);
-  const [currentProfile, setCurrentProfile] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    imgUrl: "",
-  });
   const [showAlert, setShowAlert] = useState(false);
   const [form, setForm] = useState({
     firstName: "",
@@ -22,82 +14,44 @@ const ProfileDetails = ({ title, content }) => {
     email: "",
   });
 
-  useEffect(() => {
-    const currentUserId = JSON.parse(
-      localStorage.getItem("currentUser")
-    )?.UserId;
-    const savedProfileData = JSON.parse(
-      localStorage.getItem(`profile_${currentUserId}`)
-    );
-
-    if (savedProfileData) {
-      setCurrentProfile(savedProfileData);
-    } else {
-      const userInfo = Data.Profile.find(
-        (item) => item.userId === currentUserId
-      );
-      if (userInfo) {
-        setCurrentProfile(userInfo);
-      } else {
-        setCurrentProfile({
-          firstName: "",
-          lastName: "",
-          email: "",
-          imgUrl: "",
-        });
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    // Save the updated currentProfile in local storage whenever it changes
-    const currentUserId = JSON.parse(
-      localStorage.getItem("currentUser")
-    )?.UserId;
-    localStorage.setItem(
-      `profile_${currentUserId}`,
-      JSON.stringify(currentProfile)
-    );
-  }, [currentProfile]);
+  const [userImageForMobile, setUserImageForMobile] = useState(null);
+  const [formValidate, setFormValidate] = useState(false);
 
   const handleFormSubmit = (userData) => {
+    console.log("User Data:", userData);
     setForm({
       firstName: userData.firstName,
       lastName: userData.lastName,
       email: userData.email,
     });
-
-    // Update currentProfile with the submitted data
-    setCurrentProfile({
-      ...currentProfile,
-      firstName: userData.firstName,
-      lastName: userData.lastName,
-      email: userData.email,
-      imgUrl: userData.picture,
-    });
-
     const currentUserData = JSON.parse(localStorage.getItem("currentUser"));
-    const indexOfData = Data.Profile.findIndex(
+    const indexOfData = data.Profile.findIndex(
       (user) => user.userId === currentUserData.userId
     );
-
-    if (indexOfData !== -1) {
-      Data.Profile.splice(indexOfData, 1);
+    if (indexOfData) {
+      data.Profile.splice(indexOfData, 1);
+      data.Profile.push({
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        email: userData.email,
+        userId: currentUserData.UserId,
+        imgUrl: userData.picture,
+      });
+    } else {
+      data.Profile.push({
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        email: userData.email,
+        userId: currentUserData.UserId,
+        imgUrl: userData.picture,
+      });
     }
 
-    Data.Profile.push({
-      firstName: userData.firstName,
-      lastName: userData.lastName,
-      email: userData.email,
-      userId: currentUserData.UserId,
-      imgUrl: userData.picture,
-    });
+    console.log(data.Profile);
 
     setUserImageForMobile(userData.picture);
     setShowAlert(true);
-    setFormValidate(true); // Update formValidate to true to display the profile information
   };
-
   return (
     <div className={Styles.body}>
       {/* Large Screen Styles (desktop) */}
@@ -109,7 +63,7 @@ const ProfileDetails = ({ title, content }) => {
             <>
               {userImageForMobile && (
                 <img
-                  src={currentProfile.imgUrl}
+                  src={userImageForMobile}
                   alt="user-profile-image"
                   className={Styles.user_img}
                 />
@@ -117,17 +71,11 @@ const ProfileDetails = ({ title, content }) => {
 
               <div className={Styles.user_text_info}>
                 <div className={Styles.user_names}>
-                  <h1 className={Styles.user_firstname}>
-                    {currentProfile.firstName}
-                  </h1>
-                  <h2 className={Styles.user_lastname}>
-                    {currentProfile.lastName}
-                  </h2>
+                  <h1 className={Styles.user_firstname}>{form.firstName}</h1>
+                  <h2 className={Styles.user_lastname}>{form.lastName}</h2>
                 </div>
                 <div className={Styles.user_email_container}>
-                  <span className={Styles.user_email}>
-                    {currentProfile.email}
-                  </span>
+                  <span className={Styles.user_email}>{form.email}</span>
                 </div>
               </div>
               {/* Alert */}
