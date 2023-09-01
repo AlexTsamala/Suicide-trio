@@ -103,9 +103,7 @@ const ProfileForm = ({
                     maxLength={37}
                     placeholder="email@example.com"
                     className={Styles.input}
-                    {...register("email", {
-                      // Validation rules for email field can be added here
-                    })}
+                    {...register("email", {})}
                     onChange={handleChange}
                   />
                 </div>

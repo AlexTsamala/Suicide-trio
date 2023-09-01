@@ -1,7 +1,5 @@
 import SmallLogoIcon from "../../../assets/images/logo-devlinks-small.svg";
 import LargeLogoIcon from "../../../assets/images/logo-devlinks-large.svg";
-import LinkIcon from "../../../assets/images/icon-link.svg";
-import ProfileIcon from "../../../assets/images/icon-profile-details-header.svg";
 import Preview from "../../../assets/images/icon-preview-header.svg";
 import Styles from "./Header.module.css";
 import { Link } from "react-router-dom";
