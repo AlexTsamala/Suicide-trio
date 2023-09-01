@@ -17,15 +17,16 @@
   }
 
   .platformsArr {
-    /* background-color: #fff; */
+    background-color: #fff;
     position: absolute;
-    width: 237px;
-    height: 300px;
-    top: 379px;
+    width: 239px;
+    height: 302px;
+    top: 378px;
     overflow: auto;
   }
 
   .platform {
+    background-color: #fafafa;
     display: block;
     width: 100%;
     height: 44px;
@@ -41,69 +42,17 @@
     align-items: center;
   }
 
-  .github {
-    background-color: #1a1a1a;
-    /* display: none; */
+  .iconAndName {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .frontendmentor {
-    border: 1px solid #d9d9d9;
+  .icon {
+    margin-right: 8px;
+  }
+
+  .icon path {
     background-color: #fff;
-    /* display: none; */
-  }
-
-  .twitter {
-    background-color: #43b7e9;
-    display: none;
-  }
-
-  .linkedin {
-    background-color: #2d68ff;
-    display: none;
-  }
-
-  .youtube {
-    background-color: #ee3939;
-    display: none;
-  }
-  .facebook {
-    background-color: #2442ac;
-    display: none;
-  }
-
-  .twitch {
-    background-color: #ee3fc8;
-    display: none;
-  }
-  .devto {
-    background-color: #333;
-    display: none;
-  }
-  .codewars {
-    background-color: #8a1a50;
-    display: none;
-  }
-  .freecodecamp {
-    background-color: #302267;
-    display: none;
-  }
-  .gitlab {
-    background-color: #eb4925;
-    display: none;
-  }
-
-  .hashnode {
-    background-color: #0330d1;
-    display: none;
-  }
-
-  .stackoverflow {
-    background-color: #ec7100;
-    display: none;
-  }
-
-  .codepen {
-    background-color: black;
-    display: none;
   }
 }
