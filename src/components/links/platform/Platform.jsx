@@ -20,6 +20,9 @@ import gitlabIcon from "../../../assets/images/icon-gitlab.svg";
 import hashnodeIcon from "../../../assets/images/icon-hashnode.svg";
 import stackoverflowIcon from "../../../assets/images/icon-stack-overflow.svg";
 
+const linkRegex =
+  /^(https?:\/\/(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}(?:[^\s]*)?)$/;
+
 const platformOptions = [
   { value: "Github", label: "Github" },
   { value: "Frontend Mentor", label: "Frontend Mentor" },
@@ -42,6 +45,10 @@ export const Platform = ({
   currentPlatform,
   platforms,
   setPlatforms,
+  showCheckError,
+  showEmptyError,
+  setShowCheckError,
+  setShowEmptyError,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -50,7 +57,16 @@ export const Platform = ({
     const indexOfData = platformData.findIndex(
       (platform) => platform.id === currentPlatform.id
     );
-    platformData[indexOfData].input = event.target.value;
+    const inputValue = event.target.value;
+
+    if (!linkRegex.test(inputValue)) {
+      setShowCheckError(true);
+      setShowEmptyError(false);
+    } else {
+      setShowCheckError(false);
+    }
+
+    platformData[indexOfData].input = inputValue;
     setPlatforms(platformData);
   };
 
@@ -220,13 +236,37 @@ export const Platform = ({
         />
         <h6 className={Styles.linkH6}>Link</h6>
         <div className={Styles.linkCont}>
-          <img className={Styles.linkIcon} src={linkIcon} alt="link icon" />
-          <input
-            onChange={inputHandler}
-            className={Styles.linkInput}
-            placeholder="e.g. https://www.github.com/johnappleseed"
-            value={currentPlatform.input}
-          ></input>
+          <div className={Styles.inputAndError}>
+            <img className={Styles.linkIcon} src={linkIcon} alt="link icon" />
+            {/* <input
+              onChange={inputHandler}
+              className={`${Styles.linkInput} ${
+                showCheckError ? Styles.checkInputError : ""
+              }`}
+              placeholder="e.g. https://www.github.com/johnappleseed"
+              value={currentPlatform.input}
+            ></input>
+            {showCheckError && (
+              <p className={Styles.checkInputErrorText}>Please check the URL</p>
+            )}
+            {showEmptyError && (
+              <p className={Styles.checkInputErrorText}>Can’t be empty</p>
+            )} */}
+            <input
+              onChange={inputHandler}
+              className={`${Styles.linkInput} ${
+                showCheckError ? Styles.checkInputError : ""
+              } ${showEmptyError ? Styles.emptyInputError : ""}`}
+              placeholder="e.g. https://www.github.com/johnappleseed"
+              value={currentPlatform.input}
+            />
+            {showCheckError && (
+              <p className={Styles.checkInputErrorText}>Please check the URL</p>
+            )}
+            {showEmptyError && (
+              <p className={Styles.checkInputErrorText}>Can’t be empty</p>
+            )}
+          </div>
         </div>
       </div>
     </div>
