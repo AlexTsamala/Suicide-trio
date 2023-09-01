@@ -6,8 +6,11 @@ import { AddLinks } from "./components/links/addLinks/AddLinks";
 import Profile from "./components/Profile/Profile";
 import Preview from "./components/Preview/Preview";
 import Header from "./components/Profile/Header/Header";
+import { useState } from "react";
+import PrivateRoute from "../src/components/authentication/PrivateRoute";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const location = useLocation();
   const { pathname } = location;
   return (
@@ -15,11 +18,20 @@ function App() {
       {pathname !== "/login" && pathname !== "/signup" ? <Header /> : null}
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated}/>} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/addLinks" element={<AddLinks />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/preview" element={<Preview />} />
+        <Route
+          path="/addLinks"
+          element={<PrivateRoute isAuthenticated={isAuthenticated} element={<AddLinks />} />}
+        />
+        <Route
+          path="/profile"
+          element={<PrivateRoute isAuthenticated={isAuthenticated} element={<Profile />} />}
+        />
+        <Route
+          path="/preview"
+          element={<PrivateRoute isAuthenticated={isAuthenticated} element={<Preview />} />}
+        />
       </Routes>
     </>
   );

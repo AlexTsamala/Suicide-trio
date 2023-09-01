@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Data from "../../../Data.json";
 
-export default function Login() {
+export default function Login({setIsAuthenticated}) {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
   const [input, setInput] = useState({
@@ -30,6 +30,7 @@ export default function Login() {
       data.password === loggedUser.password
     ) {
       navigate("/addlinks");
+      setIsAuthenticated(true);
       const currentUserData = Data.Users.find(
         (user) => user.email === data.email
       );
