@@ -55,3 +55,10 @@ h2 {
 h3 {
   font: bold 1.5rem/150% "Instrument Sans", Arial, sans-serif;
 }
+
+.flexGrow {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
