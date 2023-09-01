@@ -12,6 +12,8 @@
 
 .illustration {
   position: absolute;
+  width: 125px;
+  height: 80px;
   top: 46px;
   left: 85px;
 }

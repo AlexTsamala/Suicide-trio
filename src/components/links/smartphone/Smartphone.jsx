@@ -44,7 +44,7 @@ export const Smartphone = ({ userPlatforms }) => {
         background = "#1A1A1A";
         break;
       case "Frontend Mentor":
-        background = "fff";
+        background = "#fff";
         break;
       case "Twitter":
         background = "#43B7E9";
@@ -106,9 +106,8 @@ export const Smartphone = ({ userPlatforms }) => {
                   smartphoneLinkIcons.find((icon) => icon.label === item.value)
                     ?.src
                 }
-                style={{ color: "#fff" }}
               ></img>
-              {item.value}
+              <span className={Styles.platformN}>{item.value}</span>
             </div>
             <img
               className={`${item.value}Arrow`}
