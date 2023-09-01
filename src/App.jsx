@@ -15,11 +15,19 @@ function App() {
   const { pathname } = location;
   return (
     <>
-      {pathname !== "/login" && pathname !== "/signup" ? <Header /> : null}
+      {pathname !== "/login" &&
+      pathname !== "/signup" &&
+      pathname !== "/Preview" ? (
+        <Header />
+      ) : null}
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated}/>} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/addLinks" element={<AddLinks />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/Preview" element={<Preview />} />
+
         <Route
           path="/addLinks"
           element={<PrivateRoute isAuthenticated={isAuthenticated} element={<AddLinks />} />}

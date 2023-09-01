@@ -43,7 +43,7 @@ export const AddLinks = () => {
       ],
     };
 
-    console.log(savedPlatforms);
+    // console.log(savedPlatforms);
   }
 
   return (
