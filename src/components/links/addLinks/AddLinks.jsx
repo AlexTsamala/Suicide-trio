@@ -10,6 +10,8 @@ export const AddLinks = () => {
   const [platforms, setPlatforms] = useState([]);
   const [showGetStarted, setShowGetStarted] = useState(true);
   const [userPlatforms, setUserPlatforms] = useState([]);
+  const [showEmptyError, setShowEmptyError] = useState(false);
+  const [showCheckError, setShowCheckError] = useState(false);
 
   function handleAddBtn() {
     const myUUID = uuidv4();
@@ -61,6 +63,15 @@ export const AddLinks = () => {
         { UserId: userData.UserId, Platforms: savedPlatforms },
       ],
     };
+
+    const isEmpty = platforms.some((platform) => platform.input === "");
+
+    if (isEmpty) {
+      setShowEmptyError(true);
+      setShowCheckError(false);
+    } else {
+      setShowEmptyError(false);
+    }
   }
 
   return (
@@ -85,6 +96,10 @@ export const AddLinks = () => {
                   platforms={platforms}
                   setPlatforms={setPlatforms}
                   currentPlatform={item}
+                  showCheckError={showCheckError}
+                  setShowCheckError={setShowCheckError}
+                  showEmptyError={showEmptyError}
+                  setShowEmptyError={setShowEmptyError}
                 />
               ))}
               {showGetStarted && <GetStarted />}

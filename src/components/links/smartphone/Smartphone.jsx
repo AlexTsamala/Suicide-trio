@@ -17,6 +17,7 @@ import freeCodeCampIcon from "../../../assets/images/icon-freecodecamp.svg";
 import gitlabIcon from "../../../assets/images/icon-gitlab.svg";
 import hashnodeIcon from "../../../assets/images/icon-hashnode.svg";
 import stackoverflowIcon from "../../../assets/images/icon-stack-overflow.svg";
+import Data from "../../../../Data.json";
 
 export const Smartphone = ({ userPlatforms }) => {
   const smartphoneLinkIcons = [
@@ -44,7 +45,7 @@ export const Smartphone = ({ userPlatforms }) => {
         background = "#1A1A1A";
         break;
       case "Frontend Mentor":
-        background = "#fff";
+        background = "#333";
         break;
       case "Twitter":
         background = "#43B7E9";
@@ -85,6 +86,11 @@ export const Smartphone = ({ userPlatforms }) => {
     }
     return background;
   };
+
+  const handlePlatformClick = (input) => {
+    window.open(input, "_blank");
+  };
+
   return (
     <div className={Styles.smartphoneCont}>
       <img
@@ -96,6 +102,7 @@ export const Smartphone = ({ userPlatforms }) => {
         {userPlatforms
           ? userPlatforms.map((item, index) => (
               <div
+                onClick={() => handlePlatformClick(item.input)}
                 style={{ backgroundColor: formatLinkStyles(item) }}
                 key={index}
                 className={`${Styles.platform} ${item.value}`}
