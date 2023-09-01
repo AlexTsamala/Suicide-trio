@@ -1,25 +1,24 @@
 import React, { useState } from "react";
 import Select, { components } from "react-select";
 import Styles from "./platform.module.css";
-import dragNDrop from "../linksAssets/icon-drag-and-drop.svg";
-import arrowIcon from "../linksAssets/icon-chevron-down.svg";
-import linkIcon from "../linksAssets/icon-link.svg";
+import dragNDrop from "../../../assets/images/icon-drag-and-drop.svg";
+import arrowIcon from "../../../assets/images/icon-chevron-down.svg";
+import linkIcon from "../../../assets/images/icon-link.svg";
 
-import githubIcon from "../linksAssets/icon-github.svg";
-import frontendMentorIcon from "../linksAssets/icon-frontend-mentor.svg";
-import twitterIcon from "../linksAssets/icon-twitter.svg";
-import linkedInIcon from "../linksAssets/icon-linkedin.svg";
-import youtubeIcon from "../linksAssets/icon-youtube.svg";
-import facebookIcon from "../linksAssets/icon-facebook.svg";
-import twitchIcon from "../linksAssets/icon-twitch.svg";
-import devtoIcon from "../linksAssets/icon-devto.svg";
-import codewarsIcon from "../linksAssets/icon-codewars.svg";
-import codepenIcon from "../linksAssets/icon-codepen.svg";
-import freeCodeCampIcon from "../linksAssets/icon-freecodecamp.svg";
-import gitlabIcon from "../linksAssets/icon-gitlab.svg";
-import hashnodeIcon from "../linksAssets/icon-hashnode.svg";
-import stackoverflowIcon from "../linksAssets/icon-stack-overflow.svg";
-import Data from "../../../../Data.json";
+import githubIcon from "../../../assets/images/icon-github.svg";
+import frontendMentorIcon from "../../../assets/images/icon-frontend-mentor.svg";
+import twitterIcon from "../../../assets/images/icon-twitter.svg";
+import linkedInIcon from "../../../assets/images/icon-linkedin.svg";
+import youtubeIcon from "../../../assets/images/icon-youtube.svg";
+import facebookIcon from "../../../assets/images/icon-facebook.svg";
+import twitchIcon from "../../../assets/images/icon-twitch.svg";
+import devtoIcon from "../../../assets/images/icon-devto.svg";
+import codewarsIcon from "../../../assets/images/icon-codewars.svg";
+import codepenIcon from "../../../assets/images/icon-codepen.svg";
+import freeCodeCampIcon from "../../../assets/images/icon-freecodecamp.svg";
+import gitlabIcon from "../../../assets/images/icon-gitlab.svg";
+import hashnodeIcon from "../../../assets/images/icon-hashnode.svg";
+import stackoverflowIcon from "../../../assets/images/icon-stack-overflow.svg";
 
 const platformOptions = [
   { value: "Github", label: "Github" },
@@ -72,6 +71,7 @@ export const Platform = ({
     );
     platformData[indexOfData].value = event.value;
     platformData[indexOfData].label = event.label;
+
     setPlatforms(platformData);
   };
 

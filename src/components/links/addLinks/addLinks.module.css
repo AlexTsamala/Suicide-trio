@@ -20,74 +20,6 @@
   height: 939px;
 }
 
-/* .navBar {
-  width: 100%;
-  height: 74px;
-  background-color: #fff;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.mobileDevLinkLogo {
-  display: block;
-  width: 32px;
-  height: 32px;
-  margin: 0 61.5px 0 24px;
-}
-
-.tabletDevLinkLogo {
-  display: none;
-}
-
-.linkLogoP {
-  display: none;
-}
-
-.profileLogoP {
-  display: none;
-}
-
-.previewP {
-  display: none;
-}
-
-.linkLogoCont {
-  width: 74px;
-  height: 42px;
-  border-radius: 8px;
-  background-color: #efebff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 27px;
-}
-
-.profileLogo {
-  width: 20px;
-  height: 20px;
-}
-
-.previewLogoCont {
-  width: 52px;
-  height: 42px;
-  border-radius: 8px;
-  border: 1px solid #633cff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 16px 0 68.5px;
-}
-
-.previewLogo {
-  display: block;
-}
-
-.previewP {
-  display: none;
-} */
-
 .contentContainer {
   width: 343px;
   height: 730px;
@@ -175,68 +107,6 @@
     height: 1024px;
   }
 
-  /* .navBar {
-    width: 94%;
-    height: 78px;
-    padding: 16px 16px 16px 24px;
-    margin: auto;
-    margin-bottom: 24px;
-  }
-
-  .mobileDevLinkLogo {
-    display: none;
-  }
-
-  .tabletDevLinkLogo {
-    display: block;
-    width: 146px;
-    height: 40px;
-    margin-right: 55.5px;
-  }
-
-  .linkLogoP {
-    display: block;
-    margin-left: 8px;
-    color: #633cff;
-    font-size: 16px;
-    font-weight: 600;
-  }
-
-  .linkLogoCont {
-    width: 122px;
-    height: 46px;
-  }
-
-  .profileLogo {
-    width: 20px;
-    height: 20px;
-  }
-
-  .profileLogoP {
-    display: block;
-    margin-left: 8px;
-    color: #737373;
-    font-size: 16px;
-    font-weight: 600;
-  }
-
-  .previewLogoCont {
-    width: 114px;
-    height: 46px;
-    margin: 0 0 0 82.5px;
-  }
-
-  .previewLogo {
-    display: none;
-  }
-
-  .previewP {
-    display: block;
-    color: #633cff;
-    font-size: 16px;
-    font-weight: 600;
-  } */
-
   .contentContainer {
     width: 641px;
     height: 779px;
@@ -271,11 +141,6 @@
 }
 
 @media (min-width: 1440px) {
-  /* .navBar {
-    width: 1392px;
-    margin: 0 auto 24px auto;
-  } */
-
   .mainContainer {
     width: 100%;
     height: 936px;

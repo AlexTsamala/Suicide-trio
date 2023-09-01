@@ -1,10 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Styles from "./addLinks.module.css";
-// import mobileDevLinkLogo from "../linksAssets/logo-devlinks-small.svg";
-// import tabletDevLinkLogo from "../linksAssets/logo-devlinks-large.svg";
-// import linkLogo from "../linksAssets/ph_link-bold.svg";
-// import profileLogo from "../linksAssets/icon-profile-details-header.svg";
-// import previewLogo from "../linksAssets/icon-preview-header.svg";
 import { GetStarted } from "../getStarted/GetStarted";
 import { Platform } from "../platform/Platform";
 import { Smartphone } from "../smartphone/Smartphone";
@@ -14,6 +9,7 @@ import Data from "../../../../Data.json";
 export const AddLinks = () => {
   const [platforms, setPlatforms] = useState([]);
   const [showGetStarted, setShowGetStarted] = useState(true);
+  const [userPlatforms, setUserPlatforms] = useState([]);
 
   function handleAddBtn() {
     const myUUID = uuidv4();
@@ -35,6 +31,30 @@ export const AddLinks = () => {
     });
 
     const userData = JSON.parse(localStorage.getItem("currentUser"));
+    const indexOfData = Data.Links.findIndex(
+      (user) => user.userId === userData.userId
+    );
+
+
+    if (indexOfData >= 0) {
+      Data.Links.splice(indexOfData, 1);
+      Data.Links.push({
+        userId: userData.UserId,
+        platforms: [...savedPlatforms],
+      });
+    } else {
+      Data.Links.push({
+        userId: userData.UserId,
+        platforms: [...savedPlatforms],
+      });
+    }
+    const currentUserId = JSON.parse(
+      localStorage.getItem("currentUser")
+    ).UserId;
+    const currentLinks = Data.Links.find(
+      (item) => item.userId === currentUserId
+    );
+    setUserPlatforms([...savedPlatforms]);
 
     const newData = {
       Links: [
@@ -44,43 +64,14 @@ export const AddLinks = () => {
     };
 
     // console.log(savedPlatforms);
+
   }
 
   return (
     <div className={Styles.body}>
       <div className={Styles.mainContainer}>
-        {/* <div className={Styles.navBar}>
-          <img
-            className={Styles.mobileDevLinkLogo}
-            src={mobileDevLinkLogo}
-            alt="DevLink Logo"
-          />
-          <img
-            className={Styles.tabletDevLinkLogo}
-            src={tabletDevLinkLogo}
-            alt="Large DevLink Logo"
-          />
-          <div className={Styles.linkLogoCont}>
-            <img className={Styles.linkLogo} src={linkLogo} alt="Link Logo" />
-            <p className={Styles.linkLogoP}>Links</p>
-          </div>
-          <img
-            className={Styles.profileLogo}
-            src={profileLogo}
-            alt="Profile Logo"
-          />
-          <p className={Styles.profileLogoP}>Profile Details</p>
-          <div className={Styles.previewLogoCont}>
-            <img
-              className={Styles.previewLogo}
-              src={previewLogo}
-              alt="Preview Logo"
-            />
-            <p className={Styles.previewP}>Preview</p>
-          </div>
-        </div> */}
         <div className={Styles.smartLogoAndContent}>
-          <Smartphone />
+          <Smartphone userPlatforms={userPlatforms} />
           <div className={Styles.contentAndSaveCont}>
             <div className={Styles.contentContainer}>
               <h1 className={Styles.customizeH1}>Customize your links</h1>
