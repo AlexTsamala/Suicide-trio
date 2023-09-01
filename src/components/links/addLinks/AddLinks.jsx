@@ -61,8 +61,6 @@ export const AddLinks = () => {
         { UserId: userData.UserId, Platforms: savedPlatforms },
       ],
     };
-
-    // console.log(savedPlatforms);
   }
 
   return (
