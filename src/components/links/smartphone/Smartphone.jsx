@@ -107,7 +107,7 @@ export const Smartphone = ({ userPlatforms }) => {
                 key={index}
                 className={`${Styles.platform} ${item.value}`}
               >
-                <div className={Styles.IconAndName}>
+                <div className={Styles.iconAndName}>
                   <img
                     className={Styles.icon}
                     src={
