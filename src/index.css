@@ -34,7 +34,7 @@ body {
   color: var(--clr-light-grey);
 }
 
-body:has(div[data-copy='true']) {
+body:has(div[data-copy="true"]) {
   cursor: grabbing;
 }
 
@@ -54,4 +54,11 @@ h2 {
 
 h3 {
   font: bold 1.5rem/150% "Instrument Sans", Arial, sans-serif;
+}
+
+.flexGrow {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }

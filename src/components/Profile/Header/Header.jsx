@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Header = () => {
-  const [activeHeader, setActiveHeader] = useState("");
+  const [activeHeader, setActiveHeader] = useState("links");
 
   const activeLinkSvg = (
     <svg

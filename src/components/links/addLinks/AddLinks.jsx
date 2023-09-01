@@ -35,6 +35,7 @@ export const AddLinks = () => {
       (user) => user.userId === userData.userId
     );
 
+
     if (indexOfData >= 0) {
       Data.Links.splice(indexOfData, 1);
       Data.Links.push({
@@ -54,6 +55,16 @@ export const AddLinks = () => {
       (item) => item.userId === currentUserId
     );
     setUserPlatforms([...savedPlatforms]);
+
+    const newData = {
+      Links: [
+        ...Data.Links,
+        { UserId: userData.UserId, Platforms: savedPlatforms },
+      ],
+    };
+
+    // console.log(savedPlatforms);
+
   }
 
   return (
