@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./addLinks.module.css";
 import { GetStarted } from "../getStarted/GetStarted";
 import { Platform } from "../platform/Platform";
@@ -22,6 +22,15 @@ export const AddLinks = () => {
     ]);
   }
 
+  const userData = JSON.parse(localStorage.getItem("currentUser"));
+
+  useEffect(() => {
+    const userPlatforms = Data.Links.find(
+      (item) => item.userId === userData.UserId
+    )?.platforms;
+    setUserPlatforms(userPlatforms);
+  }, []);
+
   function handleSaveBtn() {
     const savedPlatforms = platforms.map((platform) => {
       return {
@@ -32,9 +41,8 @@ export const AddLinks = () => {
       };
     });
 
-    const userData = JSON.parse(localStorage.getItem("currentUser"));
     const indexOfData = Data.Links.findIndex(
-      (user) => user.userId === userData.userId
+      (user) => user.userId === userData.UserId
     );
 
     if (indexOfData >= 0) {
@@ -56,14 +64,7 @@ export const AddLinks = () => {
       (item) => item.userId === currentUserId
     );
     setUserPlatforms([...savedPlatforms]);
-
-    const newData = {
-      Links: [
-        ...Data.Links,
-        { UserId: userData.UserId, Platforms: savedPlatforms },
-      ],
-    };
-
+    console.log(currentLinks);
     const isEmpty = platforms.some((platform) => platform.input === "");
 
     if (isEmpty) {

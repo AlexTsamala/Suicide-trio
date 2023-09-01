@@ -17,17 +17,22 @@ const ProfileDetails = ({ title, content }) => {
   const [userImageForMobile, setUserImageForMobile] = useState(null);
   const [formValidate, setFormValidate] = useState(false);
 
+  const currentUserData = JSON.parse(localStorage.getItem("currentUser"));
+  const userPlatforms = data.Links.find(
+    (item) => item.userId === currentUserData.UserId
+  ).platforms;
+  console.log(userPlatforms);
   const handleFormSubmit = (userData) => {
-    console.log("User Data:", userData);
     setForm({
       firstName: userData.firstName,
       lastName: userData.lastName,
       email: userData.email,
     });
-    const currentUserData = JSON.parse(localStorage.getItem("currentUser"));
+
     const indexOfData = data.Profile.findIndex(
-      (user) => user.userId === currentUserData.userId
+      (user) => user.userId === currentUserData.UserId
     );
+
     if (indexOfData) {
       data.Profile.splice(indexOfData, 1);
       data.Profile.push({
@@ -58,7 +63,7 @@ const ProfileDetails = ({ title, content }) => {
       <div className={Styles.desktop}>
         <div className={Styles.mobile_content}>
           {/* Import Desktop Mobile */}
-          <Smartphone />
+          <Smartphone userPlatforms={userPlatforms} />
           {formValidate ? (
             <>
               {userImageForMobile && (
