@@ -1,6 +1,6 @@
 import React from "react";
 import Styles from "./getStarted.module.css";
-import illustration from "../../../assets/images/illustration-phone-mockup.svg";
+import illustration from "../../../assets/images/illustration-empty.svg";
 
 export const GetStarted = () => {
   return (
